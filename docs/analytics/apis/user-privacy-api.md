@@ -36,7 +36,7 @@ Keep these considerations in mind when using the User Privacy API.
 - After the three (3) day period, the request's status changes to `submitted`. You can't stop the job at this point.
  The deletion process removes all data associated with the user from all Amplitude's systems, including associated recovery and back-up systems.
  After the job completes, its status changes to `done`.
-- By default, deletion requests only create jobs for a particular project within your organization. This project is identified by the api key provided in the request. If you would like to delete a user across your entire organization, set both the `delete_from_org` and `ignore_invalid_ids` parameters to `true` in your request. The API will then create one deletion job per project that contains information on the requested users. 
+- By default, deletion requests create jobs for a particular project within your organization. API calls identify this project with the api key you provide in the request. To delete a user across your entire organization, set both the `delete_from_org` and `ignore_invalid_ids` parameters to `true` in your request. The API creates one deletion job per project that contains information on the requested users. 
 
 !!! warning "User tracking"
 
