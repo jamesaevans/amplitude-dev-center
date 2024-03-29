@@ -48,6 +48,13 @@ After you create the destination, you must configure the settings.
 
 When setting up Tracking Conversions on Google Ads, you will need to pick the following option from the Google Ads UI. This will allow the offline conversions to be recorded in Google Ads in the `Goals` section of Google Ads. Please note, there is some delay on Google Ads and there may be delays of up to 60 minutes for the metrics to show up after events are streamed from Amplitude.
 
+1. In Google Ads, click on **Goals**.
+2. Click on **New conversion action**
+3. Click **Import**.
+4. Click **Manual import using API uploads**.
+5. Enable **Track conversions from clicks**. 
+6. Enter a sync name, then click **Create Sync**.
+
    ![screenshot of how to track conversions in Google Ads streaming](../../assets/images/google-ads-streaming-tracking-conversions.png)
 
 ## Common issues
