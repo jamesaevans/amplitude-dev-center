@@ -5,6 +5,11 @@ description: Use this integration to stream Amplitude event data to your custom 
 
 Amplitude CDP's Webhook integration enables you to forward your Amplitude events and users to custom webhooks. This is a light-weight way to set a stream of event and user data out of Amplitude, to a URL of your choosing to enable any of your use cases.
 
+## Use Cases
+
+1. **Workflow Automation:** Webhooks are key in automating workflows and seamlessly connecting disparate systems. They automatically trigger actions based on specific events or conditions, streamlining processes, reducing manual interventions, and boosting operational efficiency. For example, an existing Amplitude customer has implemented a webhook to automate the capture and recording of user consent. When a user accepts the terms of service, the webhook triggers the automatic logging of this event in the company's internal systems, thus streamlining consent management and ensuring compliance and data accuracy.
+2. **Additional Flexibility Beyond Standard Streaming Integrations:** "Webhooks provide enhanced customization and flexibility beyond standard streaming integrations, enabling real-time data exchange and tailored interactions for dynamic and responsive systems. For instance, a customer is using a webhook to send specific event data from Amplitude to Braze, a use case that’s not possible with the native Amplitude Braze streaming integration. This involves transforming an Amplitude user property named 'newsletters'—an array with 'market' and 'newsletter_names'—into a format suitable for Braze. Additionally, another customer employs webhooks to format event data for Braze, ensuring correct processing as purchase events, showcasing the versatility of webhooks in handling complex data structures.
+
 ## Setup
 
 ### Prerequisites
