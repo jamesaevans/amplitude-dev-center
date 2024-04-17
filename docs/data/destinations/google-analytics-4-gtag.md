@@ -13,6 +13,10 @@ Amplitude CDP's Google Analytics 4 (Web) streaming integration enables you to fo
 
     Amplitude is working on a beta version of BigQuery Import for GA4. Contact [dwh+GA4beta@amplitude.com](mailto:dwh+GA4beta@amplitude.com) to learn more. For more information about importing BiqQuery data in to Amplitude, see the [BigQuery Source documentation](/data/sources/bigquery).
 
+## Use cases
+
+By sending events from Amplitude to GA4, customers can enrich GA4’s data collection capabilities, deepen their understanding of user journeys, and integrate product and marketing insights. This approach is crucial for optimizing user acquisition, retention, and enhancing the overall user experience. Click[[here](https://amplitude.com/blog/GA4-amplitude-hybrid-tracking) detailed guide from McGaw that walks through the end-to-end use case of leveraging this GA4 streaming integration.
+
 ## Setup
 
 ### Prerequisites
