@@ -15,7 +15,7 @@ Amplitude CDP's Google Analytics 4 (Web) streaming integration enables you to fo
 
 ## Use cases
 
-When you send events from Amplitude to Google Analytics 4, you enrich Google Analytics 4's data collection capabilities, deepen understanding of user journeys, and integrate product and marketing insights. This approach optimizes user acquisition and retention, and enhances  the overall user experience. For more information, see Amplitude's blog post [GA4 as an Amplitude CDP Destination: Hybrid Tracking Method for Full User Journey Analysis](https://amplitude.com/blog/GA4-amplitude-hybrid-tracking) that walks through the end-to-end use case for this Google Analytics 4 streaming integration.
+When you send events from Amplitude to Google Analytics 4, you enrich Google Analytics 4's data collection capabilities, deepen understanding of user journeys, and integrate product and marketing insights. This approach optimizes user acquisition and retention, and enhances the overall user experience. For more information, see Amplitude's blog post [GA4 as an Amplitude CDP Destination: Hybrid Tracking Method for Full User Journey Analysis](https://amplitude.com/blog/GA4-amplitude-hybrid-tracking) that walks through the end-to-end use case for this Google Analytics 4 streaming integration.
 
 ## Setup
 
