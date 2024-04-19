@@ -528,7 +528,7 @@ The response for a POST request contains these fields:
 | `status`                           | The status of the deletion job.                                                                                   |
 | `amplitude_ids` and `user_ids`     | List of the Amplitude IDs to delete.                                                                              |
 | `app`                              | The project or app ID. Included when the deletion request is for multiple projects.                               |
-| `invalid_ids`                      | When `ignore_invalid_ids` is `true`, contains a list of users that were requested but not found in the project(s) |
+| `invalid_ids`                      | When `ignore_invalid_ids` is `true`, contains a list of users that were requested but not found in the projects   |
 
 The `amplitude_ids` key contains these fields:
 
