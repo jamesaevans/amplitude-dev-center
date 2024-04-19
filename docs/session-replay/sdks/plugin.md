@@ -62,6 +62,8 @@ window.amplitude.add(sessionReplayTracking);
 </script>
 ```
 
+--8<-- "includes/session-replay/instrumentation-level.md"
+
 !!! tip "Compatability with Google Tag Manager"
     The Session Replay plugin scripts load asynchronously when you add them to the `<head>` tag of your page. As a result, this implementation isn't compatible with Google Tag Manager. For more information, see [Session Replay Implementation with Google Tag Manager](/session-replay/tag-managers/google-tag-manager).
 
@@ -179,6 +181,12 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 
 - Assets on your site move or change name. This can happen when you deploy a new version of your application.
 - Assets on your site are behind access controls that prevent Amplitude from fetching them.
+
+To help resolve CSS loading issues:
+
+- Ensure your domain is publicly accessible. If you work in a local environment, Amplitude may not have access to assets stored on `localhost`.
+- Your CDN should keep track of old stylesheets for older replays. If the content of the same stylesheet changes over time, try to append a unique string or hash to the asset URL. For example, `stylesheet.css?93f8b89`.
+- Add `app.amplitude.com` or `app.eu.amplitude.com` to the list of domains that your server's CORS configuration permits.
 
 ### Captured sessions contain limited information
 

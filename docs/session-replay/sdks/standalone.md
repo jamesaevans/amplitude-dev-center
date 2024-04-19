@@ -11,7 +11,7 @@ This article covers the installation of Session Replay using the standalone SDK.
 
 ## Before you begin
 
-Use the latest version of the Session Replay standalone SDK above version 1.0.1. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
+Use the latest version of the Session Replay standalone SDK above version @{$ browser.session_replay.standalone.version $}. For more information, see the [change log](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/packages/session-replay-browser/CHANGELOG.md) on GitHub.
 
 Session Replay Standalone SDK requires that:
 
@@ -68,6 +68,8 @@ sessionReplay.setSessionId(sessionId);
 const sessionReplayProperties = sessionReplay.getSessionReplayProperties();
 3rdPartyAnalytics.track('event', {...eventProperties, ...sessionReplayProperties})
 ```
+
+--8<-- "includes/session-replay/instrumentation-level.md"
 
 ## Add Session Replay ID to your events
 
@@ -165,6 +167,12 @@ When Amplitude captures a replay, it doesn't download and store CSS files or oth
 
 - Assets on your site move or change name. This can happen when you deploy a new version of your application.
 - Assets on your site are behind access controls that prevent Amplitude from fetching them.
+
+To help resolve CSS loading issues:
+
+- Ensure your domain is publicly accessible. If you store assets on `localhost`, try moving them to a staging environment.
+- Your CDN should keep track of old stylesheets for older replays. If the content of the same stylesheet changes over time, try to append a unique string or hash to the asset URL. For example, `stylesheet.css?93f8b89`.
+- Add `app.amplitude.com` or `app.eu.amplitude.com` to the list of domains that your server's CORS configuration permits.
 
 ### Session replays don't appear in Amplitude 
 
@@ -343,13 +351,12 @@ const segmentAnalytics = AnalyticsBrowser.load({
 
 // A plugin must be added so that events sent through Segment will have
 // session replay properties and the correct session id
-const segmentPlugin: () => Plugin = () => {
+const segmentPlugin = () => {
   return {
-    name: 'segment',
-    type: 'enrichment',
+    name: "segment",
+    type: "destination",
     execute: async (event) => {
       const properties = event.event_properties || {};
-
       segmentAnalytics.track(event.event_type, properties, {
         integrations: {
           Amplitude: {
@@ -357,10 +364,14 @@ const segmentPlugin: () => Plugin = () => {
           },
         },
       });
-      return Promise.resolve(event);
-    }
-  }
-}
+      return {
+        code: 200,
+        event: event,
+        message: "OK",
+      };
+    },
+  };
+}; 
 
 const AMPLITUDE_API_KEY = 'api-key' // must match that saved with Segment
 

@@ -76,7 +76,7 @@ plugins:
   - markdownextradata:
       jinja_options:
         variable_start_string: '@{$'
-        variable_end_string: '$}'     
+        variable_end_string: '$}'
 
 # Extensions
 # When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
@@ -163,7 +163,14 @@ extra:
   browser:
     session_replay:
       plugin:
-        version: 1.1.0
+        version: 1.1.6
+      standalone: 
+        version: 1.2.5
+    sdk:
+      version: 2.5.2
+    plugin:
+      deta:
+        version: 0.8.0
 # Navigation
 nav:
 - Documentation:
@@ -202,6 +209,7 @@ nav:
       - Warehouse:
         - BigQuery: data/sources/bigquery.md
         - Snowflake: data/sources/snowflake.md
+        - Databricks: data/sources/databricks.md
       - Other Sources:
         - Overview: data/source-other-overview.md
         - Ad Networks:
@@ -416,7 +424,6 @@ nav:
       - Guides:
         - Getting Started:
           - experiment/guides/getting-started/index.md
-          - experiment/guides/getting-started/create-a-deployment.md
           - experiment/guides/getting-started/create-a-flag.md
           - experiment/guides/getting-started/fetch-variants.md
           - experiment/guides/getting-started/track-exposure.md
@@ -427,6 +434,8 @@ nav:
           - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
           - Exposures without Assignments: experiment/guides/troubleshooting/exposures-without-assignments.md
           - Restarting experiments (Beta): experiment/guides/troubleshooting/restarting-experiments.md
+        - Reverse Proxy:
+          - AWS CloudFront: experiment/guides/aws-cloudfront-proxy.md
       - SDKs:
         - JavaScript SDK: experiment/sdks/javascript-sdk.md
         - Android SDK: experiment/sdks/android-sdk.md
@@ -449,6 +458,8 @@ nav:
           - Experiments: experiment/apis/management-api/experiments.md
           - Deployments: experiment/apis/management-api/deployments.md
           - Versions: experiment/apis/management-api/versions.md
+      - Integrations:
+        - Contentful: experiment/integrations/contentful.md
   - Session Replay:
       - session-replay/index.md
       - Overview: session-replay/index.md
@@ -469,6 +480,7 @@ nav:
   - Migrate from mParticle: guides/mparticle-migration-guide.md
   - Migrate from Adobe: guides/adobe-migration-guide.md
   - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
+  - Wordpress Plugin Guide: guides/wordpress-plugin-guide.md
 - APIs:
   - analytics/apis/index.md
   - Find your API credentials: analytics/find-api-credentials.md
@@ -509,6 +521,7 @@ nav:
         - v2.0:
           - data/sdks/browser-2/index.md
           - Ampli Codegen: data/sdks/browser-2/ampli.md
+          - Default Event Tracking Advanced plugin: data/sdks/browser-2/deta.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
@@ -530,7 +543,9 @@ nav:
         - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
       - Flutter:
         - data/sdks/flutter/index.md
-        # - Migration Guide: data/sdks/flutter/migration.md
+        - Migration Guide: data/sdks/flutter/migration.md
+      - Flutter (Beta):
+        - data/sdks/flutter-4/index.md
       - Python:
         - data/sdks/python/index.md
         - Ampli Codegen: data/sdks/python/ampli.md

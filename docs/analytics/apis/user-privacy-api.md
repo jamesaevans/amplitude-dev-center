@@ -75,21 +75,15 @@ Amplitude recommends setting this to `true` if setting the `delete_from_org` par
 === "cURL"
 
     ```bash
-    curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    -U 'API_KEY:SECRET_KEY' \ 
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-        "amplitude_ids": [
-            356896327775,
-            356896327755
-
-        ],
-        "user_ids": [
-            1000,
-            2999
-        ],
-        "requester": "employee@yourcompany.com"
-    }'
+       curl --request POST 'https://amplitude.com/api/2/deletions/users'  \
+       -u 'API_KEY:API_SECRET' \
+       --header 'Content-Type: application/json' \
+       --header 'Accept: application/json' \
+       --data-raw '{
+           "amplitude_ids": [123123, 543221],
+           "user_ids": ["user_1"],
+           "requester": "employee@yourcompany.com"
+       }'
     ```
 
 === "HTTP"
@@ -191,30 +185,30 @@ Amplitude recommends setting this to `true` if setting the `delete_from_org` par
 === "Python"
 
     ```python
-    import requests
-    import json
-
-    url = "https://amplitude.com/api/2/deletions/users"
-
-    payload = json.dumps({
-      "amplitude_ids": [
-        356896327775,
-        356896327755
-      ],
-      "user_ids": [
-        1000,
-        2999
-      ],
-      "requester": "employee@yourcompany.com"
-    })
-    headers = {
-      'Authorization': 'Basic API_KEY:API_SECRET',
-      'Content-Type': 'application/json'
-    }
-
-    response = requests.request("POST", url, headers=headers, data=payload)
-
-    print(response.text)
+       import requests
+       import json
+       from requests.auth import HTTPBasicAuth
+       
+       url = "https://amplitude.com/api/2/deletions/users"
+       
+       payload = json.dumps({
+         "amplitude_ids": [
+           1231231
+         ],
+         "user_ids": [
+           "user_1"
+         ],
+         "ignore_invalid_id": "true",
+         "requester": "employee@yourcompany.com"
+       })
+       headers = {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+       }
+       auth = HTTPBasicAuth('API_KEY', 'API_SECRET')
+       response = requests.request("POST", url, headers=headers, data=payload, auth=auth)
+       
+       print(response.text)
     ```
 
 === "Java"
