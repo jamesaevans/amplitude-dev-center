@@ -289,7 +289,7 @@ The body parameter is required. It's the deletion request object listing the `us
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    -U 'API_KEY:SECRET_KEY' \ 
+    -u 'API_KEY:SECRET_KEY' \ 
     --header 'Content-Type: application/json' \
     --data-raw '{
         "amplitude_ids": [
