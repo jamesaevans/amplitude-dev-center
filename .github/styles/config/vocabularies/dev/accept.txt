@@ -231,3 +231,4 @@ Contentful
 [Dd]rawables
 Bento
 Wordpress
+Autocapture

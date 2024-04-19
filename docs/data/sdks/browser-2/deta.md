@@ -1,14 +1,14 @@
 ---
-title: Default Event Tracking Advanced
+title: Autocapture
 ---
 
-Amplitude's Default Event Tracking Advanced plugin extends the events and properties that Amplitude tracks by default, and enables Visual Tagger to enable you to define events based on elements on your site. For more information about Visual Tagger, see [Visual Tagger](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor).
+Amplitude's Autocapture plugin extends the events and properties that Amplitude tracks by default, and enables Visual Tagger to enable you to define events based on elements on your site. For more information about Visual Tagger, see [Visual Tagger](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor).
 
 --8<-- "includes/alpha-release.md"
 
 ## Installation
 
-Default Event Tracking requires the latest versions of the Amplitude Browser SDK (@{$ browser.sdk.version $}) and the Default Event Tracking Advanced plugin (@{$ browser.plugin.deta.version $})
+Autocapture requires the latest versions of the Amplitude Browser SDK (@{$ browser.sdk.version $}) and the Autocapture plugin (@{$ browser.plugin.deta.version $})
 
 === "Script Loader"
     ```html
@@ -28,7 +28,7 @@ Default Event Tracking requires the latest versions of the Amplitude Browser SDK
 
 ## Initialize the plugin
 
-The Amplitude Browser SDK supports a [plugin architecture](/data/sdk-plugins/) that enables features like Default Event Tracking Advanced. To enable the plugin, update your code with one of the following snippets, depending on your implementation. Both methods require that you define the Default Event Tracking Advanced plugin, then call `add()` to enable it.
+The Amplitude Browser SDK supports a [plugin architecture](/data/sdk-plugins/) that enables features like Autocapture. To enable the plugin, update your code with one of the following snippets, depending on your implementation. Both methods require that you define the Autocapture plugin, then call `add()` to enable it.
 
 === "Script Loader"
     ```html
@@ -49,7 +49,7 @@ The Amplitude Browser SDK supports a [plugin architecture](/data/sdk-plugins/) t
 
 ## Configuration
 
-The Default Event Tracking Advanced plugin adds four settings that help you configure what the plugin tracks.
+The Autocapture plugin adds four settings that help you configure what the plugin tracks.
 
 | <div class="big-column">Setting</div>                   | Default                                                                                              | Description                                                                                        |
 | -------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -89,7 +89,7 @@ By default, if you don't use these settings, Amplitude tracks the default select
 
 ## New events
 
-When you enable the Default Event Tracking Advanced plugin, Amplitude sends two events, from which you can create Dynamic Events with Visual Tagger:
+When you enable the Autocapture plugin, Amplitude sends two events, from which you can create Dynamic Events with Visual Tagger:
 
 - `[Amplitude] Element Clicked`
 - `[Amplitude] Element Changed`
@@ -114,17 +114,17 @@ These two events capture properties that describe the corresponding element and 
 - `[Amplitude] Element Parent Label`
 <!-- vale on-->
 
-## Disable default event tracking
+## Disable Autocapture
 
-To disable default event tracking, remove the plugin from any pages that implement it, and set `defaultTracking: false` in the Amplitude initialization on that page.
+To disable Autocapture, remove the plugin from any pages that implement it, and set `defaultTracking: false` in the Amplitude initialization on that page.
 
 === "Script Loader"
     Remove the following lines of code:
 
     ```html
-    <!-- load Amplitude DETA plugin -->
+    <!-- load Amplitude Autocapture plugin -->
     <script defer src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-advanced-browser-@{$ browser.plugin.deta.version $}-min.js.gz"></script>
-    <!-- initialize Amplitude SDK and DETA plugin -->
+    <!-- initialize Amplitude SDK and Autocapture plugin -->
     <script type="module">
     const defaultEventTrackingAdvancedPlugin = window.amplitudeDefaultEventTrackingAdvancedPlugin.plugin();
     window.amplitude.add(defaultEventTrackingAdvancedPlugin);
