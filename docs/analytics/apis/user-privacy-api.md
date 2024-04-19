@@ -64,13 +64,13 @@ The body parameter is required. It's the deletion request object listing the `us
 | `amplitude_ids`                    | Amplitude IDs for the users to delete.                                                                                                                                                                                                                                                                                                                 |
 | `user_ids`                         | User IDs for the users to delete.                                                                                                                                                                                                                                                                                                                      |
 | `requester`                        | The internal user who requested the deletion. This is useful for auditing.                                                                                                                                                                                                                                                                             |
-| `ignore_invalid_id`                | Boolean. Defaults to `false`. With `false`, if any users in the request aren't found in the project, a 400 error is returned, and no users in the request are marked for deletion. With `true`, the response is a 200 success that includes a list of `invalid_ids`, and any users found in the relevant project are added to the relevant job. `invalid_ids` are any requested users with no data found in the relevant project. If the parameter `delete_from_org` is `true`, this field is automatically set to `true`, ignoring the input. 
+| `ignore_invalid_id`                | Boolean. Defaults to `false`. With `false`, if any users in the request aren't found in the project, the API returns a 400 error, and it doesn't mark any users in the request for deletion. With `true`, the response is a 200 success that includes a list of `invalid_ids`, and the API adds any users found in the relevant project to the relevant job. `invalid_ids` represent any requested users with no data found in the relevant project. If the parameter `delete_from_org` is `true`, this field is automatically set to `true`, ignoring the input. 
 
 Amplitude recommends setting this to `true` if setting the `delete_from_org` parameter to `true`                                                                                                                                                                                                                    |
 | `delete_from_org`                  | Boolean. Defaults to `false`. When `false`, the request will only delete the requested users from the project identified by the given API key. When set to `true`, the requested users are deleted across your entire organization. When `true`, the request will insert the end users into a job for each project that contains data for the requested users. When `true`, the `ignore_invalid_ids` parameter is automatically set to `true`, ignoring the input.                                                                                                                        |
 | `include_mapped_user_ids`          | When `true`, this parameter returns the valid `user_id` values that correspond to a supplied `amplitude_id`. This only changes the response object. To delete mapped users set with the [User Mapping API](https://www.docs.developers.amplitude.com/analytics/apis/aliasing-api/), include each `user_id` of the mapped user in the `user_ids` array. |
 
-### Example request: Default parameters. Will only delete user in one project and will error if users not found 
+### Example request (Default parameters): Only deletes user in one project and errors if users not found
 
 === "cURL"
 
@@ -198,7 +198,6 @@ Amplitude recommends setting this to `true` if setting the `delete_from_org` par
          "user_ids": [
            "user_1"
          ],
-         "ignore_invalid_id": "true",
          "requester": "employee@yourcompany.com"
        })
        headers = {
