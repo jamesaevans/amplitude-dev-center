@@ -461,4 +461,4 @@ const hasCookie = hasNewCookie || hasOldCookie;
 
 ??? note "CNIL France - The trackers are completely independent of each other and of any other tracker"
 
-    The cookie used by the Amplitude SDK is a [first party cookie](https://www.docs.developers.amplitude.com/guides/cookies-consent-mgmt-guide/?h=cookie#frequently-asked-questions) and any data collected by the cookie is collected by the customer as the controller of the data. Amplitude only processes the customer’s data as a processor / service provider, and doesn't use customer data for its own purposes. 
+    The cookie used by the Amplitude SDK is a [first party cookie](/guides/cookies-consent-mgmt-guide/?h=cookie#frequently-asked-questions) and any data collected by the cookie is collected by the customer as the controller of the data. Amplitude only processes the customer’s data as a processor / service provider, and doesn't use customer data for its own purposes. 
