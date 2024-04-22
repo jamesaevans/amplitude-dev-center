@@ -27,7 +27,7 @@ This guide covers functional and technical information on how Amplitude works wi
 
 ## Using Amplitude Cookies
 
-A **“Cookie”** is a piece of data from a website that's stored on a users a web browser that. Websites can retrieve cookies at a later time to access data stored for functional and/or technical purposes. After initialization, the Amplitude SDK creates a cookie that begins with the prefix `amp_` and ends with this first six digits of your project API key. You can customize this prefix with the constant `COOKIE_PREFIX` in the SDK's [constants.js](https://github.com/amplitude/Amplitude-JavaScript/blob/35e2dd3f342614cfb27fcb6455e361595ae222d7/src/constants.js#L36) file. The SDK defines the cookie's value in [amplitude-client.js](https://github.com/amplitude/Amplitude-JavaScript/blob/03c0a890d578db1ada383cf1e6195d71275bac44/src/amplitude-client.js#L121).
+A **“Cookie”** is a piece of data from a website that's stored on a users a web browser that. Websites can retrieve cookies at a later time to access data stored for functional and/or technical purposes. After initialization, the Amplitude SDK creates a cookie that begins with the prefix `AMP_` and ends with this first ten digits of your project API key. You can customize this prefix with the constant `COOKIE_PREFIX` in the SDK's [constants.js](https://github.com/amplitude/Amplitude-JavaScript/blob/35e2dd3f342614cfb27fcb6455e361595ae222d7/src/constants.js#L36) file. The SDK defines the cookie's value in [amplitude-client.js](https://github.com/amplitude/Amplitude-JavaScript/blob/03c0a890d578db1ada383cf1e6195d71275bac44/src/amplitude-client.js#L121).
 
 For example, if the default value for the prefix is used and you enter the following: 
 
@@ -35,7 +35,7 @@ For example, if the default value for the prefix is used and you enter the follo
 amplitude.getInstance().init("a2dbce0e18dfe5f8e...") 
 ```
 
-The Amplitude SDK creates a cookie with the name `amp_a2dbce`.
+The Amplitude Browser 2.0 SDK creates a cookie with the format `AMP_` with the first 10 characters of your project's API Key appended.
 
 ![Image showing the cookies that are created by Amplitude.](../../../assets/images/cookies/amplitudeCookies.png)
 
