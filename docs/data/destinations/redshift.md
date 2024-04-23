@@ -3,6 +3,9 @@ title: Redshift Export
 description: Upload your Amplitude event data to your Redshift account with recurring exports. 
 ---
 
+!!!note "Not available in EU"
+    Event filtering for warehouses isn't available in the EU region.
+
 Upload your Amplitude event data into your Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
 ## Limits

@@ -3,6 +3,9 @@ title: Snowflake Data Share Export
 description: Access your Amplitude event data via Snowflake Data Share.
 ---
 
+!!!note "Not available in EU"
+    Event filtering for warehouses isn't available in the EU region.
+
 Get access to your Amplitude events via Snowflake's Data Share product.
 
 Amplitude supports [Snowflake’s Data Share](https://docs.snowflake.com/en/user-guide/data-sharing-intro.html) integration to give customers access to their event data that lives within Amplitude. Amplitude’s integration currently supports sharing a Raw Events table and a Merged ID table. 
