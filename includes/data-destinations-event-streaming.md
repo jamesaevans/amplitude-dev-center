@@ -20,6 +20,7 @@
 - :google-ads: [Google Ads](/data/destinations/google-ads-event-streaming)
 - :google-pub-sub: [Google Pub/Sub](/data/destinations/google-pub-sub)
 - :hubspot: [Hubspot](/data/destinations/hubspot-event-streaming)
+- :hubspot: [Hubspot](/data/destinations/hubspot-event-streaming-v2)
 - :intercom: [Intercom](/data/destinations/intercom)
 - :iterable: [Iterable](/data/destinations/iterable)
 - :kameleoon: [Kameleoon](/data/destinations/kameleoon-event-streaming)
