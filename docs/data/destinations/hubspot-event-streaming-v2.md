@@ -3,11 +3,11 @@ title: HubSpot Event Streaming v2
 description: Send Amplitude events to HubSpot automatically with just a few clicks.
 ---
 
-[HubSpot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. Amplitude CDP's HubSpot streaming integration enables you to forward your Amplitude events and event properties straight to HubSpot with just a few clicks.
+[HubSpot](https://www.HubSpot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. Amplitude's HubSpot streaming integration enables you to forward your Amplitude events and event properties straight to HubSpot with just a few clicks.
 
 !!!info "This integration is in Closed Beta"
 
-    This feature is in Closed Beta and is in active development. Email integrations@amplitude.com if you are interested. Unlike the [Hubspot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/hubspot-event-streaming/), this integration enables you to create pre-define and custom events from Amplitude without logging into Hubspot first. 
+    This feature is in Closed Beta and is in active development. Email integrations@amplitude.com if you are interested. Unlike the [HubSpot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/HubSpot-event-streaming/), this integration enables you to create pre-define and custom events from Amplitude without logging into HubSpot first. 
 
 ## Use cases
 
@@ -23,7 +23,7 @@ Keep these things in mind when sending events to HubSpot:
 - Events from Amplitude will appear as Custom Behavioral Events in HubSpot.
 - A HubSpot Enterprise Marketing Hub account is required to send Custom Behavioral Events.
 - Relevant limits for HubSpot events are:
-    - HubSpot enforces strict API rate limits. You can find more information about these limits [here](https://developers.hubspot.com/docs/api/usage-details).
+    - HubSpot enforces strict API rate limits. You can find more information about these limits [here](https://developers.HubSpot.com/docs/api/usage-details).
     - HubSpot allows up to 50 properties for each custom behavior event.
 - Types of data you can forward to HubSpot:
     - Amplitude sends selected event properties along with the event.
@@ -39,14 +39,14 @@ Keep these things in mind when sending events to HubSpot:
 3. Enter a sync name, then click Create **Sync**.
 4. Choose a HubSpot Account ID or authenticate with HubSpot
 5. Toggle the **Send events** filter to select the events to send.
-6. Under the **Select & filter events** section, select which Amplitude Events you would like to map to Hubspot. Provide a Hubpsot Internal Event Name which will correspond with this Amplitude Event that you’ve selected. HubSpot recommends choosing the events that are most important to your use case.
-7. Under the **Map properties to destinations**, select which Event Properties you would like to send. The Hubspot identifier for this object must be at least one of the following: User Token, Email or Object ID.
-8. Under the **Select additional properties** section, select any additional event and user properties you want to send to Hubspot. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
+6. Under the **Select & filter events** section, select which Amplitude Events you would like to map to HubSpot. Provide a Hubpsot Internal Event Name which will correspond with this Amplitude Event that you’ve selected. HubSpot recommends choosing the events that are most important to your use case.
+7. Under the **Map properties to destinations**, select which Event Properties you would like to send. The HubSpot identifier for this object must be at least one of the following: User Token, Email or Object ID.
+8. Under the **Select additional properties** section, select any extra event and user properties you want to send to HubSpot. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
 9. When finished, enable the destination and **Save**.
 
 ## Use custom behavioral event data in HubSpot
 
-- Click here to learn more about how you can [analyze custom behavioral events](https://knowledge.hubspot.com/analytics-tools/analyze-custom-behavioral-events) in HubSpot.
+- Click here to learn more about how you can [analyze custom behavioral events](https://knowledge.HubSpot.com/analytics-tools/analyze-custom-behavioral-events) in HubSpot.
 
 ### View event completions
 
@@ -64,7 +64,7 @@ Keep these things in mind when sending events to HubSpot:
 3. In the left sidebar, select **Custom Report Builder**.
 4. To use custom behavioral events as your primary data source, click the **Primary data source** dropdown menu, then select **Custom behavioral events**.
 5. If you want to use custom behavioral events as a non-primary source, you can select **Custom behavioral events** from the Other section. 
-6. Continue [building your report](https://knowledge.hubspot.com/reports/create-reports-with-the-custom-report-builder). To specify which event you want to report on, in the left sidebar, click the **Browse** dropdown menu, then select **Custom behavioral events**. Then, under Custom behavioral events, select the **event** you want to report on.
+6. Continue [building your report](https://knowledge.HubSpot.com/reports/create-reports-with-the-custom-report-builder). To specify which event you want to report on, in the left sidebar, click the **Browse** dropdown menu, then select **Custom behavioral events**. Then, under Custom behavioral events, select the **event** you want to report on.
 
 ### Custom behavioral events in workflows
 
@@ -80,4 +80,4 @@ Keep these things in mind when sending events to HubSpot:
     - Select the **maximum wait time**, or select the **Delay as long as possible checkbox**.
 6. Click **Save**.
 
-    ![screenshot of the HubSpot workflow](../../assets/images/hubspot-event-streaming-workflow.png)
+    ![screenshot of the HubSpot workflow](../../assets/images/HubSpot-event-streaming-workflow.png)
