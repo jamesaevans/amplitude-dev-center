@@ -79,5 +79,3 @@ In a workflow, you can delay based on custom event completions using a [Delay un
     - Click **Apply filter**.
     - Select the **maximum wait time**, or select the **Delay as long as possible checkbox**.
 6. Click **Save**.
-
-    ![screenshot of the HubSpot workflow](../../assets/images/HubSpot-event-streaming-workflow.png)
