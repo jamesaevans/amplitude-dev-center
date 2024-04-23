@@ -47,26 +47,26 @@ Keep these things in mind when sending events to HubSpot:
 ## Use custom behavioral event data in HubSpot
 
 - Click here to learn more about how you can [analyze custom behavioral events](https://knowledge.HubSpot.com/analytics-tools/analyze-custom-behavioral-events) in HubSpot.
+  
+### Report on custom events
 
-### View event completions
+Custom event completions can be analyzed from the custom events tool, and event data will also be available in the custom report builder and attribution reports.
 
-1. In your HubSpot account, navigate to **Reports > Analytics Tools**.
-2. Click **Custom Behavioral Events**.
-3. Click the **Analyze** tab.
-4. To filter the data for a specific time range and frequency, click the Date range and Frequency dropdown menus.
-5. To view chart data for specific events in the chart, select the **checkboxes** next to those events in the table.
-6. To view more detail for an event, including completions, unique visitors, and the properties associated with the event, click the name of the **event** in the table.
+Learn more about [analyzing your custom events](https://knowledge.hubspot.com/analytics-tools/analyze-custom-behavioral-events).
 
-### Report on custom behavioral events
+### View event completions on the contact timeline
 
-1. In your HubSpot account, navigate to **Reports > Reports**.
-2. In the upper right, click **Create custom report**.
-3. In the left sidebar, select **Custom Report Builder**.
-4. To use custom behavioral events as your primary data source, click the **Primary data source** dropdown menu, then select **Custom behavioral events**.
-5. If you want to use custom behavioral events as a non-primary source, you can select **Custom behavioral events** from the Other section. 
-6. Continue [building your report](https://knowledge.HubSpot.com/reports/create-reports-with-the-custom-report-builder). To specify which event you want to report on, in the left sidebar, click the **Browse** dropdown menu, then select **Custom behavioral events**. Then, under Custom behavioral events, select the **event** you want to report on.
+Event completions will appear on the contact record timeline, along with any properties that were populated.
 
-### Custom behavioral events in workflows
+To view event details on the contact timeline:
+
+- [Navigate to a contact record](https://knowledge.hubspot.com/records/work-with-records) that has completed a custom event.
+- To filter a contact timeline by completed events, click **Filter activity**, then select **Custom event**.
+- In the contact timeline, click to expand the **event** to display the event details.
+
+### Use custom events in workflows
+
+In a workflow, you can delay based on custom event completions using a [Delay until event happens action](https://knowledge.hubspot.com/workflows/use-delays) or an event enrollment trigger.
 
 1. In your HubSpot account, navigate to **Automation > Workflows**.
 2. Click the **name** of a workflow. Or, learn how to create a new workflow.
