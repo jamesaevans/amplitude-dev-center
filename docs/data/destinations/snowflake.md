@@ -3,7 +3,7 @@ title: Export Amplitude Data to Snowflake
 description: Upload your Amplitude event data to your Snowflake account with recurring exports.
 ---
 
-!!!note "Not available in EU"
+!!!note "Event filtering availability"
     Event filtering for warehouses isn't available in the EU region.
 
 Load your Amplitude event data into your Snowflake account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.

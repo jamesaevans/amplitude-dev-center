@@ -3,7 +3,7 @@ title: Snowflake Data Share Export
 description: Access your Amplitude event data via Snowflake Data Share.
 ---
 
-!!!note "Not available in EU"
+!!!note "Event filtering availability"
     Event filtering for warehouses isn't available in the EU region.
 
 Get access to your Amplitude events via Snowflake's Data Share product.

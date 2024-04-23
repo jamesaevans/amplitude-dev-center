@@ -3,7 +3,7 @@ title: BigQuery Export
 description: Set up a recurring or one-time export of Amplitude event data to BigQuery.
 ---
 
-!!!note "Not available in EU"
+!!!note "Event filtering availability"
     Event filtering for warehouses isn't available in the EU region.
 
 You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually start a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
