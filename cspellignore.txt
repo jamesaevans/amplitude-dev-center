@@ -158,6 +158,8 @@ httpv
 HTTT
 Hubspot
 hubspot
+Hubspotv2
+hubspotv2
 IDFA
 Idfa
 idfa
