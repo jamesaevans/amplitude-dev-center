@@ -7,7 +7,7 @@ description: Send Amplitude events to HubSpot automatically with just a few clic
 
 !!!info "This integration is in Closed Beta"
 
-    This feature is in Closed Beta and is in active development. Email integrations@amplitude.com if you are interested. Unlike the [HubSpot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/HubSpot-event-streaming/), this integration enables you to create pre-define and custom events from Amplitude without logging into HubSpot first. 
+    This feature is in Closed Beta and is in active development. Email integrations@amplitude.com if you are interested. Unlike the [HubSpot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/HubSpot-event-streaming/), this integration will automatically create the necessary custom event definitions and properties in HubSpot, rather than requiring they be created manually. 
 
 ## Use cases
 
@@ -24,7 +24,7 @@ Keep these things in mind when sending events to HubSpot:
 - A HubSpot Enterprise Marketing Hub account is required to send Custom Behavioral Events.
 - Relevant limits for HubSpot events are:
     - HubSpot enforces strict API rate limits. You can find more information about these limits [here](https://developers.HubSpot.com/docs/api/usage-details).
-    - HubSpot allows up to 50 properties for each custom behavior event.
+    - HubSpot allows up to 50 custom properties for each custom event.
 - Types of data you can forward to HubSpot:
     - Amplitude sends selected event properties along with the event.
 - Latency considerations:
