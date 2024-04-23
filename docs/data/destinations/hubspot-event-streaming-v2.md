@@ -39,7 +39,7 @@ Keep these things in mind when sending events to HubSpot:
 3. Enter a sync name, then click Create **Sync**.
 4. Choose a HubSpot Account ID or authenticate with HubSpot
 5. Toggle the **Send events** filter to select the events to send.
-6. Under the **Select & filter events** section, select which Amplitude Events you would like to map to HubSpot. Provide a Hubpsot Internal Event Name which will correspond with this Amplitude Event that you’ve selected. HubSpot recommends choosing the events that are most important to your use case.
+6. Under the **Select & filter events** section, select which Amplitude Events you would like to map to HubSpot. Provide a HubSpot Internal Event Name which will correspond with this Amplitude Event that you’ve selected. HubSpot recommends choosing the events that are most important to your use case.
 7. Under the **Map properties to destinations**, select which Event Properties you would like to send. The HubSpot identifier for this object must be at least one of the following: User Token, Email or Object ID.
 8. Under the **Select additional properties** section, select any extra event and user properties you want to send to HubSpot. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
 9. When finished, enable the destination and **Save**.
