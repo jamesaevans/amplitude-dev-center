@@ -319,6 +319,7 @@ nav:
         - Google Tag Manager: data/destinations/google-tag-manager-event-streaming.md
         - Hotjar: data/destinations/hotjar-event-streaming.md
         - Hubspot: data/destinations/hubspot-event-streaming.md
+        - Hubspotv2: data/destinations/hubspot-event-streaming-v2.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
         - Kameleoon: data/destinations/kameleoon-event-streaming.md
