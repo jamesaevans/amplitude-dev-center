@@ -4,17 +4,17 @@ description: Sync cohorts from Amplitude to Humanic AI
 status: new
 ---
 
-[Humanic AI](https://www.humanic.ai/) is an AI Powered PLG CRM for the Modern Revenue Team.This integration lets you sync cohorts from Amplitude to Humanic AI. 
+[Humanic AI](https://www.humanic.ai/) is an AI Powered PLG CRM for the Modern Revenue Team. This integration lets you sync cohorts from Amplitude to Humanic AI. 
 
 !!!Tip
 
-    This integration is currently maintained by Humanic AI. Contact the [Humanic AI support team](https://help.Humanic AI.com/hc/en-us) for support with this integration. 
+    This integration is maintained by Humanic AI. Contact the [Humanic AI support team](https://help.Humanic AI.com/hc/en-us) for support with this integration. 
 
 ## Considerations
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- You will need to have a paid Humanic.ai plan to enable this integration.
-- Humanic AI supports both email addresses and customer_id as the identifier. This means the User_ID or user property you select in Amplitude must be mapped to either email or customer_id.
+- You need to have a paid Humanic.ai plan to enable this integration.
+- Humanic AI supports both email addresses and `customer_id` as the identifier. This means you need to map the `user_id` or user property you select in Amplitude must to either `email` or `customer_id`.
 
 ## Setup
 
@@ -25,7 +25,7 @@ For more information on setting up this integration, see [Humanic AI’s documen
 1. Log in to your **Humanic AI** account.
 2. Navigate to the **Profile** section by clicking on the name icon located on top right.
 3. Go to the **API Key **tab and click on the **Create** button.
-4. Copy the API key, it will be required on Amplitude dashboard for integration
+4. Copy the API key, Amplitude requires it to complete the integration.
 
 ### Amplitude setup
 
