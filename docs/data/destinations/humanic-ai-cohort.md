@@ -24,7 +24,7 @@ For more information on setting up this integration, see [Humanic AI’s documen
 
 1. Log in to your **Humanic AI** account.
 2. Navigate to the **Profile** section by clicking on the name icon located on top right.
-3. Go to the **API Key **tab and click on the **Create** button.
+3. Go to the **API Key** tab and click on the **Create** button.
 4. Copy the API key, Amplitude requires it to complete the integration.
 
 ### Amplitude setup
