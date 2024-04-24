@@ -29,7 +29,7 @@ For more information on setting up this integration, see [Blueshift’s document
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Blueshift**.
 3. Click **Add another destination**.
-4. Enter **Name** and paste in the **API key** you copied from Blueshift.
+4. Enter **Name** and paste in the **API key** and **Secret/Password** you copied from Blueshift.
 5. Select the type of User ID from the dropdown (email or customer_id).
 6. Map the Amplitude **User ID** field to the Blueshift **User ID** field.
 7. Choose your identifier as the field.
