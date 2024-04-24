@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /analytics/apis/taxonomy-import-api/
+Disallow: /data/sdks/javascript/*
 Disallow: /utils/*

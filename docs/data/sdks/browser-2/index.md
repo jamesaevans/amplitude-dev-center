@@ -7,7 +7,7 @@ icon: simple/javascript
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser/latest)
 
-The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+This is the official documentation for the Amplitude Analytics JavaScript/Typescript SDK. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 This SDK is compatible with :amp-session-replay:[Amplitude Session Replay](/session-replay).
 
