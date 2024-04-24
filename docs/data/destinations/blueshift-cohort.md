@@ -8,12 +8,12 @@ status: new
 
 !!!Tip
 
-    This integration is currently maintained by Blueshift. Contact the [Blueshift support team](https://help.blueshift.com/hc/en-us) for support with this integration. 
+    This integration is maintained by Blueshift. Contact the [Blueshift support team](https://help.blueshift.com/hc/en-us) for support with this integration. 
 
 ## Considerations
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- Blueshift supports both email addresses and customer_id as the identifier. This means the User_ID or user property you select in Amplitude must be mapped to either email or customer_id.
+- Blueshift supports both email addresses and `customer_id` as the identifier. This means you need to map the `user_id` or user property you select in Amplitude must to either `email` or `customer_id`.
 
 ## Setup
 
@@ -30,7 +30,7 @@ For more information on setting up this integration, see [Blueshift’s document
 2. In the Cohort section, click **Blueshift**.
 3. Click **Add another destination**.
 4. Enter **Name** and paste in the **API key** and **Secret/Password** you copied from Blueshift.
-5. Select the type of User ID from the dropdown (email or customer_id).
+5. Select the type of User ID from the dropdown (`email` or `customer_id`).
 6. Map the Amplitude **User ID** field to the Blueshift **User ID** field.
 7. Choose your identifier as the field.
 8. Save when finished.
@@ -48,12 +48,14 @@ To sync your first cohort, follow these steps:
 ## Locating your cohort in Blueshift
 
 1. Navigate to Data > Customers > List
-2. You will find cohorts synced from Amplitude with nomenclature - [Amplitude] {Amplitude cohort name}: {Amplitude cohort Id}
+2. Find cohorts synced from Amplitude with nomenclature - `[Amplitude] {Amplitude cohort name}: {Amplitude cohort ID}`
 
 ### Use cases
 
 Sending cohorts from Amplitude to Blueshift can enable brands to leverage the power of Blueshift's AI technology and omnichannel capabilities to enhance customer engagement and deliver personalized experiences. Here are some use cases for sending cohorts from Amplitude to Blueshift:
 
-1. **Behavior-Based Personalization:** Brands can create cohorts in Amplitude based on user behavior, such as product usage patterns, feature adoption, or content consumption. These cohorts can be sent to Blueshift to trigger 1:1 personalized messaging and offers to users who exhibit specific behaviors. For example, if a cohort shows that users have abandoned their shopping carts, Blueshift can send automated cart abandonment emails with 1:1 personalized product recommendations.
-2. **Onboarding and Activation:** Brands can identify cohorts of new users who have signed up but haven't completed onboarding or activation steps. These cohorts can be sent to Blueshift to trigger personalized onboarding journeys, welcome emails, or in-app messages to guide users through the activation process and improve retention.
-3. **Segmented Campaigns:** Brands can segment their user base in Amplitude based on various attributes, such as demographics, location, or engagement history. These segments can be sent to Blueshift for targeted marketing campaigns. For instance, sending a cohort of high-value customers to Blueshift for a VIP campaign with exclusive offers and content.
+1. **Behavior-Based Personalization:** Brands can create cohorts in Amplitude based on user behavior, such as product usage patterns, feature adoption, or content consumption. Send these cohorts to Blueshift to trigger 1:1 personalized messaging and offers to users who exhibit specific behaviors. For example, if a cohort shows that users have abandoned their shopping carts, Blueshift can send automated cart abandonment emails with 1:1 personalized product recommendations.
+   
+2. **Onboarding and Activation:** Brands can identify cohorts of new users who have signed up but haven't completed onboarding or activation steps. Send these cohorts to Blueshift to trigger personalized onboarding journeys, welcome emails, or in-app messages to guide users through the activation process and improve retention.
+
+3. **Segmented Campaigns:** Brands can segment their user base in Amplitude based on various attributes, such as demographics, location, or engagement history. Send these segments to Blueshift for targeted marketing campaigns. For instance, sending a cohort of high-value customers to Blueshift for a VIP campaign with exclusive offers and content.
