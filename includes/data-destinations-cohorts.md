@@ -11,6 +11,7 @@
 - :blitzllama: [Blitzllama](../data/destinations/blitzllama-cohort.md)  
 - :apxor: [Apxor](../data/destinations/apxor-cohort.md)
 - :bento: [Bento](../data/destinations/bento-cohort.md)
+- :blueshift: [Blueshift](../data/destinations/blueshift-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - [Cohort Webhooks](../data/destinations/cohort-webhooks.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
