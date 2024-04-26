@@ -2,7 +2,7 @@
 title: Amplitude Wordpress Plugin
 ---
 
-The Amplitude Wordpress plugin enables you to instrument your Wordpress site with an advanced version of Autocapture.
+The [Amplitude Wordpress Plugin](https://wordpress.org/plugins/amplitude/) enables you to instrument your Wordpress site with an advanced version of Autocapture.
 
 --8<-- "includes/open-beta.md"
 
