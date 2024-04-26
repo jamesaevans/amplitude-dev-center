@@ -8,7 +8,7 @@ status: new
 
     This feature is in Closed Beta and is in active development. Contact your Amplitude Client Success Manager for support with this integration.
 
-Amplitude Data's Google Ads integration enables you to stream your Amplitude event data straight to Google Ads with just a few clicks. Click [here](https://www.loom.com/share/852d1cf72ebf44f18c64aa763450651a) for a detailed guide on how to setup this Google Ads Streaming integration.
+Amplitude's Google Ads integration enables you to stream your Amplitude event data to Google Ads. For more information, see a [Loom video](https://www.loom.com/share/852d1cf72ebf44f18c64aa763450651a) with detailed information about configuring this Google Ads Streaming integration.
 
 ## Use cases
 
