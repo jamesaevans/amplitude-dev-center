@@ -232,4 +232,5 @@ Contentful
 Bento
 Wordpress
 Autocapture
+Blueshift
 Humanic
