@@ -45,6 +45,9 @@ After you create the destination, you must configure the settings.
 9.  Map your Amplitude property to Google Ads property
       1. Map the `gclid` Amplitude property to the **GCLID** property in Google Ads
       2. Map the `event_time` Amplitude property to the **Conversion Date Time** property in Google Ads
+      3. (Optional) Map an Amplitude property to the **Currency_Value** property in Google Ads. Within, Google Ads you can specify a specific conversion value but leveraging this mapping allows you to dynamically show a different conversion value for each conversion action. See [here](https://developers.google.com/google-ads/api/reference/rpc/v16/ClickConversion) for more information on Currency Value
+      4. (Optional) Map an Amplitude property to the **Currency_Code** property in Google Ads. See [here](https://developers.google.com/google-ads/api/reference/rpc/v16/ClickConversion) for more information on Currency Code
+      5. (Optional) Map an Amplitude property to the **Order_ID** property in Google Ads. See [here](https://developers.google.com/google-ads/api/reference/rpc/v16/ClickConversion) for more information on Order ID
 10. Save when finished.
 
 ### Setup tracking conversion in Google Ads
