@@ -160,6 +160,10 @@ Hubspot
 hubspot
 Hubspotv2
 hubspotv2
+humanic.ai
+Humanic.ai
+Humanic-ai
+humanic-ai
 IDFA
 Idfa
 idfa

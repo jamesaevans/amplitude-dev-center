@@ -361,6 +361,7 @@ nav:
         - Facebook Ads: data/destinations/facebook-cohort.md
         - Google Ads: data/destinations/google-ads-cohort.md
         - HubSpot: data/destinations/hubspot-cohort.md
+        - Humanic: data/destinations/humanic-ai-cohort.md
         - Infobip: data/destinations/infobip-cohort.md
         - Intercom: data/destinations/intercom-cohort.md
         - Insider: data/destinations/insider-cohort.md
