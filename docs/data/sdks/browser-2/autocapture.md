@@ -8,22 +8,22 @@ Amplitude's Autocapture plugin extends the events and properties that Amplitude 
 
 ## Installation
 
-Autocapture requires the latest versions of the Amplitude Browser SDK (@{$ browser.sdk.version $}) and the Autocapture plugin (@{$ browser.plugin.deta.version $})
+Autocapture requires the latest versions of the Amplitude Browser SDK (@{$ browser.sdk.version $}) and the Autocapture plugin (@{$ browser.plugin.autocapture.version $})
 
 === "Script Loader"
     ```html
     <script defer src="https://cdn.amplitude.com/libs/analytics-browser-@{$ browser.sdk.version $}-min.js.gz"></script>
-    <script defer src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-advanced-browser-@{$ browser.plugin.deta.version $}-min.js.gz"></script>
+    <script defer src="https://cdn.amplitude.com/libs/plugin-autocapture-browser-@{$ browser.plugin.autocapture.version $}-min.js.gz"></script>
     ```
 === "NPM"
     ```bash
     npm install @amplitude/analytics-browser
-    npm install @amplitude/plugin-default-event-tracking-advanced-browser@beta
+    npm install @amplitude/plugin-autocapture-browser@beta
     ```
 === "Yarn"
     ```bash
     yarn add @amplitude/analytics-browser
-    yarn add @amplitude/plugin-default-event-tracking-advanced-browser@beta
+    yarn add @amplitude/plugin-autocapture-browser@beta
     ```
 
 ## Initialize the plugin
@@ -33,18 +33,18 @@ The Amplitude Browser SDK supports a [plugin architecture](/data/sdk-plugins/) t
 === "Script Loader"
     ```html
     <script type="module">
-        window.amplitude.init(AMPLITUDE_API_KEY)
-        const defaultEventTrackingAdvancedPlugin = window.amplitudeDefaultEventTrackingAdvancedPlugin.plugin();
-        window.amplitude.add(defaultEventTrackingAdvancedPlugin);
+      window.amplitude.init(AMPLITUDE_API_KEY)
+      const autocapturePlugin = window.amplitudeAutocapturePlugin.plugin();
+      window.amplitude.add(autocapturePlugin);
     </script>
     ```
 === "NPM / Yarn"
     ```js
     import * as amplitude from '@amplitude/analytics-browser';
-    import { defaultEventTrackingAdvancedPlugin } from '@amplitude/plugin-default-event-tracking-advanced-browser';
+    import { autocapturePlugin } from '@amplitude/plugin-autocapture-browser';
 
     amplitude.init(AMPLITUDE_API_KEY);
-    amplitude.add(defaultEventTrackingAdvancedPlugin());
+    amplitude.add(autocapturePlugin());
     ```
 
 ## Configuration
@@ -59,7 +59,7 @@ The Autocapture plugin adds four settings that help you configure what the plugi
 | `dataAttributePrefix`      | `data-amp-track`                                                                                     | Allows the plugin to capture data attributes as an event property                                  |
 
 ```js
-const plugin = defaultEventTrackingAdvancedPlugin({
+const plugin = autocapturePlugin({
   cssSelectorAllowlist: [
     '.amp-tracking',
     '[amp-tracking]'
@@ -77,13 +77,11 @@ By default, if you don't use these settings, Amplitude tracks the default select
     When specify the CSS selectors to track, your selection overrides the default. To retain the default selectors import the `DEFAULT_CSS_SELECTOR_ALLOWLIST` and include it in your code.
 
     ```js
-    import {
-    DEFAULT_CSS_SELECTOR_ALLOWLIST,
-    } from '@amplitude/plugin-default-event-tracking-advanced-browser';
+    import { DEFAULT_CSS_SELECTOR_ALLOWLIST } from '@amplitude/plugin-autocapture-browser';
 
     const selectors = [
-        ...DEFAULT_CSS_SELECTOR_ALLOWLIST,
-        '.class-of-a-thing-i-want-to-track',
+      ...DEFAULT_CSS_SELECTOR_ALLOWLIST,
+      '.class-of-a-thing-i-want-to-track',
     ];
     ```
 
@@ -123,11 +121,11 @@ To disable Autocapture, remove the plugin from any pages that implement it, and 
 
     ```html
     <!-- load Amplitude Autocapture plugin -->
-    <script defer src="https://cdn.amplitude.com/libs/plugin-default-event-tracking-advanced-browser-@{$ browser.plugin.deta.version $}-min.js.gz"></script>
+    <script defer src="https://cdn.amplitude.com/libs/plugin-autocapture-browser-@{$ browser.plugin.autocapture.version $}-min.js.gz"></script>
     <!-- initialize Amplitude SDK and Autocapture plugin -->
     <script type="module">
-    const defaultEventTrackingAdvancedPlugin = window.amplitudeDefaultEventTrackingAdvancedPlugin.plugin();
-    window.amplitude.add(defaultEventTrackingAdvancedPlugin);
+      const autocapturePlugin = window.amplitudeAutocapturePlugin.plugin();
+      window.amplitude.add(autocapturePlugin);
     </script>
     ```
 === "NPM / Yarn"
@@ -135,17 +133,17 @@ To disable Autocapture, remove the plugin from any pages that implement it, and 
 
     ```bash
     // npm
-    npm uninstall @amplitude/plugin-default-event-tracking-advanced-browser
+    npm uninstall @amplitude/plugin-autocapture-browser
 
     // yarn
-    yarn remove @amplitude/plugin-default-event-tracking-advanced-browser
+    yarn remove @amplitude/plugin-autocapture-browser
     ```
 
     Remove the initialization code:
 
     ```javascript
     // Remove the following lines of code
-    import { defaultEventTrackingAdvancedPlugin } from '@amplitude/plugin-default-event-tracking-advanced-browser';
+    import { autocapturePlugin } from '@amplitude/plugin-autocapture-browser';
 
-    amplitude.add(defaultEventTrackingAdvancedPlugin());
+    amplitude.add(autocapturePlugin());
     ```

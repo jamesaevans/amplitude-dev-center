@@ -163,14 +163,14 @@ extra:
   browser:
     session_replay:
       plugin:
-        version: 1.1.6
+        version: 1.1.9
       standalone: 
-        version: 1.2.5
+        version: 1.2.8
     sdk:
       version: 2.5.2
     plugin:
-      deta:
-        version: 0.8.0
+      autocapture:
+        version: 0.9.0
 # Navigation
 nav:
 - Documentation:
@@ -362,6 +362,7 @@ nav:
         - Facebook Ads: data/destinations/facebook-cohort.md
         - Google Ads: data/destinations/google-ads-cohort.md
         - HubSpot: data/destinations/hubspot-cohort.md
+        - Humanic: data/destinations/humanic-ai-cohort.md
         - Infobip: data/destinations/infobip-cohort.md
         - Intercom: data/destinations/intercom-cohort.md
         - Insider: data/destinations/insider-cohort.md
@@ -523,7 +524,7 @@ nav:
         - v2.0:
           - data/sdks/browser-2/index.md
           - Ampli Codegen: data/sdks/browser-2/ampli.md
-          - Default Event Tracking Advanced plugin: data/sdks/browser-2/deta.md
+          - Autocapture plugin: data/sdks/browser-2/autocapture.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
