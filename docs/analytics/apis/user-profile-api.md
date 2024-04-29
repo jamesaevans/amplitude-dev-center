@@ -416,15 +416,18 @@ Retrieve all computations for a user.
 
 ```
 
-## Get a single computation
+## Get single/multiple computation
 
 !!!note "Feature availability"
 
     This feature is available in accounts with Amplitude Audiences.
 
-Retrieves a single computation by ID. Find the computation ID by navigating to the computation in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example:
+Retrieves a single or multiple computation by ID(s). Find the computation ID by navigating to the computation in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example: https://app.amplitude.com/audiences/org_name_00000/computations/**t14bqib**/
 
-<recommend.amplitude.com/org/00000/computations/**t14bqib**>
+!!!note "Multiple Computation"
+
+    To fetch multiple comp_id, separate comp_id by comma(,). For example: `comp_id=id1,id2`. Responses for multiple comp_id IDs are in the `amp_props` field.
+
 
 ### Request
 
