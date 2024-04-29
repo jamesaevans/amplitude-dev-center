@@ -7,6 +7,12 @@
 {{ super() }}
 {% endblock %}
 
+{% block extrahead %}
+  {% if page and page.meta and page.meta.noindex %}
+  <meta name="robots" content="noindex">
+  {% endif %}
+{% endblock %}
+
 {% block site_meta %}
     {{super()}}
     <meta name="google-site-verification" content="UHLjtoO7DV30dx3hVhwTOIWguEUr_VzS41msmq-uYKA" />
