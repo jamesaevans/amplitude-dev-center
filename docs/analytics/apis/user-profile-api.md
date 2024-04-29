@@ -422,7 +422,7 @@ Retrieve all computations for a user.
 
     This feature is available in accounts with Amplitude Audiences.
 
-Retrieves a single or multiple computation by ID(s). Find the computation ID by navigating to the computation in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example: https://app.amplitude.com/audiences/org_name_00000/computations/**t14bqib**/
+Retrieves a single or multiple computation by ID. Navigate to the computation in Audiences to find and copy the ID at the end of the URL. For example, `t14bqib` is the ID in  `https://app.amplitude.com/audiences/org_name_00000/computations/t14bqib/`
 
 !!!note "Multiple Computation"
 
