@@ -1,5 +1,5 @@
 <!-- To add an entry, first add an SVG logo in overrides/.icons, then add a new line item in the table. Wrap the icon filename in colons to reference it. -->
-
+<!--vale off-->
 <div class="grid cards" markdown>
 
 - :1flow: [1Flow](../data/destinations/1flow-cohort.md)
@@ -11,14 +11,16 @@
 - :blitzllama: [Blitzllama](../data/destinations/blitzllama-cohort.md)  
 - :apxor: [Apxor](../data/destinations/apxor-cohort.md)
 - :bento: [Bento](../data/destinations/bento-cohort.md)
+- :blueshift: [Blueshift](../data/destinations/blueshift-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
-- :cohort-webhooks:[Cohort Webhooks](../data/destinations/cohort-webhooks.md)
+- [Cohort Webhooks](../data/destinations/cohort-webhooks.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)
 - :customerio: [Customer.io](../data/destinations/customerio-cohort.md)
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
 - :facebook: [Facebook Ads](../data/destinations/facebook-cohort.md)
 - :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
+- :humanic: [Humanic AI](../data/destinations/humanic-ai-cohort.md)
 - :google-ads: [Google Ads](../data/destinations/google-ads-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :insider: [Insider](../data/destinations/insider-cohort.md)
@@ -56,7 +58,7 @@
 - :unitQ: [unitQ](../data/destinations/unitQ-cohort.md)
 - :userflow: [Userflow](../data/destinations/userflow-cohort.md)
 - :userlist: [Userlist](../data/destinations/userlist-cohort.md)
-- :user.com: [User.com](../data/destinations/user.com-cohort.md)
-- :webengage: [Webengage](../data/destinations/webengage-cohort.md)
-- :zeda.io: [Zeda.io](../data/destinations/zeda.io-cohort.md)
+- :user-com: [User.com](../data/destinations/user.com-cohort.md)
+- :web-engage: [Webengage](../data/destinations/webengage-cohort.md)
+- :zeda-io: [Zeda.io](../data/destinations/zeda.io-cohort.md)
 </div>

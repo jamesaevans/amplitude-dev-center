@@ -1,5 +1,5 @@
 <!-- To add an entry, first add an SVG logo in overrides/.icons, then add a new line item in the table. Wrap the icon filename in colons to reference it. -->
-
+<!--vale off-->
 <div class="grid cards" markdown>
 
 - :absmartly: [ABsmartly](/data/destinations/absmartly-event-streaming)
@@ -20,7 +20,8 @@
 - :google-analytics-4: [Google Analytics 4 (Web)](/data/destinations/google-analytics-4-gtag)
 - :google-ads: [Google Ads](/data/destinations/google-ads-event-streaming)
 - :google-pub-sub: [Google Pub/Sub](/data/destinations/google-pub-sub)
-- :hubspot: [Hubspot](/data/destinations/hubspot-event-streaming)
+- :hubspot: [HubSpot](/data/destinations/hubspot-event-streaming)
+- :hubspot: [HubSpot V2](/data/destinations/hubspot-event-streaming-v2)
 - :intercom: [Intercom](/data/destinations/intercom)
 - :iterable: [Iterable](/data/destinations/iterable)
 - :kameleoon: [Kameleoon](/data/destinations/kameleoon-event-streaming)
@@ -30,11 +31,11 @@
 - :meta: [Meta Pixel](/data/destinations/meta-pixel)
 - :moengage: [MoEngage](/data/destinations/moengage-event-streaming)
 - :moloco: [Moloco](/data/destinations/moloco-event-streaming) 
-- :movable-ink: [Movable Ink](/data/destinations/movable-ink-event-streaming)
+- :moveable-ink: [Movable Ink](/data/destinations/movable-ink-event-streaming)
 - :planhat: [Planhat](/data/destinations/planhat-event-streaming)
 - :plotline: [Plotline](/data/destinations/plotline-event-streaming)
 - :pushwoosh: [Pushwoosh](/data/destinations/pushwoosh-event-streaming)
-- :sfmc: [Salesforce Marketing Cloud](/data/destinations/marketing-cloud-event-streaming)
+- :salesforce: [Salesforce Marketing Cloud](/data/destinations/marketing-cloud-event-streaming)
 - :statsig: [Statsig](/data/destinations/statsig)
 - :toplyne: [Toplyne](/data/destinations/toplyne)
 - :userlist: [Userlist](/data/destinations/userlist-event-streaming)

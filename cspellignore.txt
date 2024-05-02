@@ -48,10 +48,14 @@ Bitcode
 Blitzllama
 blitzllama
 Blitzllama's
+Blueshift
+blueshift
 Bronto
 buildpath
 bulgogi
 BYOUR
+Candu
+candu
 Canonicalization
 canonicalization
 canonicalized
@@ -156,6 +160,12 @@ httpv
 HTTT
 Hubspot
 hubspot
+Hubspotv2
+hubspotv2
+humanic.ai
+Humanic.ai
+Humanic-ai
+humanic-ai
 IDFA
 Idfa
 idfa
