@@ -19,7 +19,9 @@ To configure the Cohort integration from Amplitude to Candu, complete the follow
 
 ### Candu 
 
-In Candu, navigate to **Settings** then click **Integrations**.
+1. In Candu, navigate to **Settings** then click **Integrations**.
+2. Under Data & Analytics Integrations, click on Amplitude.
+3. Copy the API keys.
 
 ### Amplitude
 
