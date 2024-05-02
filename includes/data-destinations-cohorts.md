@@ -14,6 +14,7 @@
 - :blueshift: [Blueshift](../data/destinations/blueshift-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - [Cohort Webhooks](../data/destinations/cohort-webhooks.md)
+- [chameleon](../data/destinations/chameleon-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)
 - :customerio: [Customer.io](../data/destinations/customerio-cohort.md)
