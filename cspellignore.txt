@@ -63,6 +63,8 @@ canonicalizes
 Cartfile
 CCPA
 CDP's
+Chameleon
+chameleon
 Cheatsheet
 cheatsheet
 Clevertap
