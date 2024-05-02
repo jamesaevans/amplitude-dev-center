@@ -428,7 +428,6 @@ Retrieves a single or multiple computation by ID. Navigate to the computation in
 
     To fetch multiple comp_id, separate comp_id by comma(,). For example: `comp_id=id1,id2`. Responses for multiple comp_id IDs are in the `amp_props` field.
 
-
 ### Request
 
 Retrieve a computation for a user by ID.
