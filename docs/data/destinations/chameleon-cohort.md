@@ -3,7 +3,7 @@ title: Send Cohorts to Chameleon
 description: Sync cohorts from Amplitude to Chameleon to target users to create in-app UX experiences
 ---
 
-[Chameleon](https://www.tryChameleon.co/)enables you to create in-app UX patterns (such as banners, modals, walkthroughs, checklists, cards, microsurveys etc.) to drive product adoption and growth, without coding. Your in-app experiences can be styled to feel native, targeted based on user data, page conditions, and custom logic, and AB tested to help drive results. 
+[Chameleon](https://www.tryChameleon.co/)enables you to create in-app UX patterns (for example, banners, modals, checklists, cards, or micro-surveys) to drive product adoption and growth, without coding. Your can style your in-app experiences to feel native, targeted based on user data, page conditions, and custom logic, and AB tested to help drive results. 
 
 This integration lets you sync cohorts from Amplitude to Chameleon in real time.
 
