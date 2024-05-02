@@ -13,6 +13,7 @@
 - :bento: [Bento](../data/destinations/bento-cohort.md)
 - :blueshift: [Blueshift](../data/destinations/blueshift-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
+- :candu: [Candu](../data/destinations/candu-cohort.md)
 - [Cohort Webhooks](../data/destinations/cohort-webhooks.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)
