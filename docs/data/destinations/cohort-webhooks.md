@@ -69,7 +69,7 @@ Amplitude doesn't have a single IP address for forwarding events and users, so e
     "computed_time": "${input.computed_time}",
      "message_id": "${input.message_id}",
     "users": [
-     <#list input.users.iterator() as user>
+     <#list input.users as user>
      {
          "user_id": "${user.user_id}"
       }<#sep>,
