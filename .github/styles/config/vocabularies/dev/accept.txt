@@ -234,3 +234,4 @@ Wordpress
 Autocapture
 Blueshift
 Humanic
+Candu

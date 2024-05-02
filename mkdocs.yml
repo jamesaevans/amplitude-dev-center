@@ -354,6 +354,7 @@ nav:
         - Blitzllama: data/destinations/blitzllama-cohort.md
         - Blueshift: data/destinations/blueshift-cohort.md
         - Braze: data/destinations/braze-cohort.md
+        - Candu: data/destinations/candu-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
         - Chameleon: data/destinations/chameleon-cohort.md
         - Cohort Webhooks: data/destinations/cohort-webhooks.md
