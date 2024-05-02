@@ -2,6 +2,7 @@
 title: JavaScript SDK (Maintenance)
 description: The Amplitude JavaScript SDK installation and quick start guide.
 icon: simple/javascript
+noindex: true
 ---
 
 <!-- vale off-->

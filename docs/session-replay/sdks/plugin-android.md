@@ -10,10 +10,10 @@ title: Session Replay Android SDK Plugin (ALPHA)
 This article covers the installation of Session Replay using the Android SDK plugin. If your app is already instrumented with Amplitude, use this option. If you use a provider other than Amplitude for in-product analytics, choose the [standalone implementation](/session-replay/sdks/standalone-android).
 
 --8<-- "includes/session-replay/performance-android.md"
-
+  
 ## Before you begin
 
-Use the latest version of the Session Replay Plugin above version `0.4.1`. For a list of available versions, see all [release versions](https://central.sonatype.com/artifact/com.amplitude/plugin-session-replay-android/versions) on Maven Central.
+Use the latest version of the Session Replay Plugin above version `@{$ android.session_replay.version $}`. For a list of available versions, see all [release versions](https://central.sonatype.com/artifact/com.amplitude/plugin-session-replay-android/versions) on Maven Central.
 
 The Session Replay Plugin requires that:
 
@@ -30,9 +30,9 @@ Add the [latest version](https://central.sonatype.com/artifact/com.amplitude/plu
 
     ```kotlin
     // Install latest version from Maven Central
-    implementation("com.amplitude:plugin-session-replay-android:0.4.+")
+    implementation("com.amplitude:plugin-session-replay-android:@{$ android.session_replay.version $}")
     // You will also need the Amplitude Analytics SDK if it's not already installed
-    implementation("com.amplitude:analytics-android:[1.0.0, 2.0.0)")
+    implementation("com.amplitude:analytics-android:[1.16.7, 2.0.0)")
     ```
 
 Configure your application code.
@@ -53,7 +53,12 @@ val amplitude = Amplitude(Configuration(
 // Recording will be handled automatically
 val sessionReplayPlugin = SessionReplayPlugin(sampleRate = 1.0)
 amplitude.add(sessionReplayPlugin)
+
+// Send replay data to the server
+amplitude.flush()
 ```
+
+--8<-- "includes/session-replay/compose-support-android.md"
 
 ## Configuration
 
@@ -100,7 +105,7 @@ Session replay requires that you configure default session event tracking. This 
 
 ### User opt-out
 
-The Session Replay plugin follows the Browser SDK's `optOut` setting, and doesn't support user opt-outs on its own.
+The Session Replay plugin follows the Android SDK's `optOut` setting, and doesn't support user opt-outs on its own.
 
 ```kotlin
 // Set optOut on the Amplitude SDK
@@ -138,12 +143,12 @@ Once enabled, Session Replay runs on your app until either:
 - The user leaves your app
 - You call `amplitude.remove(sessionReplayPlugin)`
 
-Call `amplitude.remove(sessionReplayPlugin)` before a user navigates to a restricted area of your site to disable replay collection while the user is in that area.
+Call `amplitude.remove(sessionReplayPlugin)` before a user navigates to a restricted area of your app to disable replay collection while the user is in that area.
 
 !!!note Keep a reference 
     This requires keeping a reference to the SessionReplayPlugin instance `val sessionReplayPlugin = SessionReplayPlugin(/* session replay options */)`.
 
-Call `amplitude.add(sessionReplayPlugin)` to re-enable replay collection when the return to an unrestricted area of your site.
+Call `amplitude.add(sessionReplayPlugin)` to re-enable replay collection when the return to an unrestricted area of your app.
 
 You can also use a feature flag product like Amplitude Experiment to create logic that enables or disables replay collection based on criteria like location. For example, you can create a feature flag that targets a specific user group, and add that to your initialization logic:
 
@@ -166,7 +171,7 @@ if (nonEUCountryFlagEnabled) {
 
 --8<-- "includes/session-replay/replay-storage-android.md"
 
-Setting `flushEventsOnClose = true` in the Amplitude SDK Configuration (the default) is recommended to send session data to the server on each app exit.
+Amplitude recommends setting `flushEventsOnClose = true` in the Amplitude SDK Configuration (the default) to send session data to the server on each app exit.
 
 --8<-- "includes/session-replay/known-limitations-android.md"
 
@@ -186,7 +191,7 @@ If you use a method other than the Android SDK to instrument your events, consid
 
 ### Replay length and session length don't match
 
-In some scenarios, the length of a replay may exceed the time between the `[Amplitude] Start Session` and `[Amplitude] End Session` events. This happens when a user closes the `[Amplitude] End Session` occurs, but before the Browser SDK and Session Replay plugin can process it. When the user visits that page again, the SDK and plugin process the event and send it to Amplitude, along with the replay. You can verify this scenario occurs if you see a discrepancy between the `End Session Client Event Time` and the `Client Upload Time`.
+In some scenarios, the length of a replay may exceed the time between the `[Amplitude] Start Session` and `[Amplitude] End Session` events. This happens when a user closes the `[Amplitude] End Session` occurs, but before the Android SDK and Session Replay plugin can process it. When the user uses the app again, the SDK and plugin process the event and send it to Amplitude, along with the replay. You can verify this scenario occurs if you see a discrepancy between the `End Session Client Event Time` and the `Client Upload Time`.
 
 ### Session replays don't appear in Amplitude
 
@@ -203,11 +208,11 @@ Ensure your app has access to the internet then try again.
 
 #### Failed to flush recording before exiting the app
 
-Session replay data is stored in memory only. This can lead to data loss between app starts.
+Session replay stores data in memory only. This can lead to data loss between app starts.
 
-Setting `flushEventsOnClose = true` (the default) is recommended to send session data to the server on each app exit.
+Amplitude recommends setting `flushEventsOnClose = true` (the default) to send session data to the server on each app exit.
 
-Alternatively, you can call `amplitude.flush()` to flush events at any time of your choice.
+You can also call `amplitude.flush()` to flush events at any time of your choice.
 
 #### No events triggered through the Android SDK in the current session
 
@@ -225,7 +230,7 @@ As mentioned above, the default `sampleRate` for Session Replay is `0`. Update t
 
 Session replay doesn't require that all events in a session have the `[Amplitude] Session Replay ID` property, only that one event in the session has it. Reasons why `[Amplitude] Session Replay ID`  may not be present in an event include:
 
-- The user may have opted out or may not be part of the sample set given the current `sampleRate`. Increasing the `sampleRate` will capture more sessions.
+- The user may have opted out or may not be part of the sample set given the current `sampleRate`. Increasing the `sampleRate` captures more sessions.
 - Amplitude events may still send through your provider, but `getSessionReplayProperties()` doesn't return the `[Amplitude] Session Replay ID` property. This can result from `optOut` and `sampleRate` configuration settings. Check that `optOut` and `sampleRate` are set to include the session.
 
 ### Session Replay processing errors
@@ -238,4 +243,4 @@ In general, replays should be available within minutes of ingestion. Delays or e
 - Page instrumentation. If Session Replay isn't implemented on all pages a user visits, their session may not capture properly.
 - Replays older than the set [retention period](#retention-period) (defaults to 90 days).
 
-*[alpha]: This product is in alpha. This feature be improved in future versions.
+*[alpha]: This product is in active development.

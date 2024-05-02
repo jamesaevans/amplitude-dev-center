@@ -7,7 +7,7 @@ icon: simple/javascript
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser/latest)
 
-The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+This is the official documentation for the Amplitude Analytics JavaScript/Typescript SDK. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 This SDK is compatible with :amp-session-replay:[Amplitude Session Replay](/session-replay).
 
@@ -161,7 +161,7 @@ Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can b
     |-|-|-|
     `config.defaultTracking.attribution` | Optional. `boolean` | Enables/disables marketing attribution tracking. If value is `true`, Amplitude tracks marketing attribution events otherwise marketing attribution tracking is disabled. Default value is `true`.<br /><br />|
     `config.defaultTracking.pageViews` | Optional. `boolean` | Enables/disables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization otherwise page view tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
-    `config.defaultTracking.sessions` | Optional. `boolean` | Enables/disables session tracking. If value is `true`, Amplitude tracks session start and session end events otherwise session tracking is disabled. Default value is `true`.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
+    `config.defaultTracking.sessions` | Optional. `boolean` | Enables/disables session tracking. If value is `true`, Amplitude tracks session start and session end events otherwise, Amplitude doesn't track session events. When this setting is `false`, Amplitude tracks `sessionId` only.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
     `config.defaultTracking.formInteractions` | Optional. `boolean` | Enables/disables form interaction tracking. If value is `true`, Amplitude tracks form start and form submit events otherwise form interaction tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude]  Form ID`, `[Amplitude] Form Name`, `[Amplitude] Form Destination`<br /><br />See [Tracking form interactions](#tracking-form-interactions) for more information.|
     `config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables/disables file download tracking. If value is `true`, Amplitude tracks file download events otherwise file download tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude] File Extension`, `[Amplitude] File Name`, `[Amplitude] Link ID`, `[Amplitude] Link Text`, `[Amplitude] Link URL`<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
 
@@ -215,7 +215,7 @@ You can also use advanced configuration for better control of how marketing attr
 ???config "Marketing attribution options"
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
-    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and RegExp values for pattern matching against the referring domain. By default the current domain (and all its subdomains) are excluded referrers. |
+    `config.defaultTracking.attribution.excludeReferrers` | Optional. Array of `string` or `RegExp` | Sets rules to determine which referrers are excluded from being tracked as traffic source. Use string values for exact matching and [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp) values for pattern matching against the referring domain. When this option isn't set, the current domain (and its subdomains) are excluded referrers. If explicitly adding an external referrer to exclude, you must also add the current domain (and its subdomains) as additional referrers to exclude. Learn more [here](#exclude-referrers). |
     `config.defaultTracking.attribution.initialEmptyValue` | Optional. `string` | Sets the value to represent undefined/no initial campaign parameter for first-touch attribution. The default value is `"EMPTY`. |
     `config.defaultTracking.attribution.resetSessionOnNewCampaign` | Optional. `boolean` | Configures Amplitude to start a new session if any campaign parameter changes. The default value is `false`. |
 
@@ -230,6 +230,16 @@ amplitude.init(AMPLITUDE_API_KEY, {
   },
 });
 ```
+
+###### Exclude referrers
+
+!!! note 
+  
+    All sub-configurations of `config.defaultTracking.attribution` take effect only on user properties and do **NOT** affect the event properties of the default page view events. 
+
+The default value of `config.defaultTracking.attribution.excludeReferrers` is the top level domain with cookie storage enabled. For example, if you initialize the SDK on `https://www.docs.developers.amplitude.com/`, the SDK first checks `amplitude.com`. If it doesn't allow cookie storage, then the SDK checks `developers.amplitude.com` and subsequent subdomains. If it allows cookie storage, then the SDK sets `excludeReferrers` to an RegExp object `/amplitude\.com$/` which matches and then exlucdes tracking referrers from all subdomains of `amplitude.com`, for example, `data.amplitude.com`, `analytics.amplitude.com` and etc. 
+
+In addition to excluding referrers from the default configuration, you can add other domains by setting the custom `excludeReferrers`. Custom `excludeReferrers` overrides the default values. For example, to also exclude referrers from `google.com`, set `excludeReferrers` to `[/amplitude\.com$/, 'google.com']`.
 
 #### Tracking page views
 
@@ -253,7 +263,7 @@ amplitude.init(AMPLITUDE_API_KEY, {
 
 Amplitude tracks session events by default. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
 
-You can opt out of session tracking by setting `config.defaultTracking.sessions` to `false`. Refer to the code sample below.
+You can opt out of tracking session events by setting `config.defaultTracking.sessions` to `false`. Refer to the code sample below.
 
 ```ts
 amplitude.init(AMPLITUDE_API_KEY, {
@@ -438,3 +448,26 @@ amplitude.init(AMPLITUDE_API_KEY, {
   offline: amplitude.Types.OfflineDisabled
 });
 ```
+
+### Marketing Attribution Tracking
+
+Amplitude tracks marketing attribution by default. Once you enable marketing attribution tracking, Amplitude generates `identify` events to assign the campaign value in certain cases. This ensures that user properties update and influence future events. 
+For more information, see the scenarios outlined below that demonstrate when Amplitude does or doesn't track marketing attribution. These examples are illustrative, not exhaustive.
+
+Tracking occurs when either of the following applies:
+
+|Rule|Example|
+|-|-|
+| The current subdomain is not an excluded referrer. | The referrer does not originates from the same domain or the current subdomain is not match any referrer in `config.defaultTracking.attribution.excludeReferrers`. |
+| No previous campaign. | A user's initial visit. |
+| There is an introduction of new UTM parameter or Click ID parameter. | If any utm parameters or Click ID parameters have been dropped during a session, we will unset it. |
+| The referrer domain changes to a new one. | Referrer domain changed from `a.test.com` to `b.test-new.com`|
+
+Amplitude doesn't track marketing attribution under any of the following conditions:
+
+|Rule|Example|
+|-|-|
+| The referrer originates from the same domain. | The landing page is `a.test.com`, with the referrer set to `b.test.com`. |
+| A specific referrer domain is explicitly excluded.| When setting `config.defaultTracking.attribution.excludeReferrers` = `[a.test.com]`, and the referrer domain is `a.test.com` for the current page. |
+| The subdomain is specified or matches the regular expression in `config.defaultTracking.attribution.excludeReferrers`.| Configuration of excludeReferrers involves specific string arrays or a regular expression. |
+| The user engages in direct traffic within the same session.| During a session, a user clicks on a link without any campaign attribution parameters, including the absence of UTM and click id parameters from an email. |

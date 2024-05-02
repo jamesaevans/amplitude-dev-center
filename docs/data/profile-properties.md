@@ -2,6 +2,8 @@
 title: Profile Properties 
 description: Profile Properties allow you to sync a current property value from a source (currently only Snowflake) to use within the Amplitude platform.
 ---
+!!!note "Not available in EU"
+    This feature isn't available in the EU region.
 
 Profile Properties enable you to merge customer profile data from your data warehouse with existing behavioral product data already in Amplitude. These values display the most current data synced from your warehouse.
 

@@ -202,7 +202,8 @@ A successful request returns a `200 OK` response and a JSON object with the expe
         "endDate": null,
         "experimentType": "hypothesis-testing",
         "deleted": false,
-        "tags": []
+        "tags": [],
+        "createdBy: "x@amplitude.com"
     }
     ```
 
@@ -982,7 +983,7 @@ Edit an experiment.
 |`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. When `targetSegments` object is provided, it will replace existing target segments. Note: cohorts are not supported at the moment. |
 |`enabled`| Optional | boolean | Property to activate or deactivate experiment. |
 |`archive`| Optional | boolean | Property to archive or unarchive experiment. |
-|`experimentType`| Optional | string | Experiment type, options include `no-harm` or `hypothesis-testing`. |
+|`experimentType`| Optional | string | Experiment type, options include `no-harm`, `hypothesis-testing`, or `multi-arm-bandit`. |
 |`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../../general/evaluation/implementation.md#sticky-bucketing). |
 |`startDate`| Optional | string | Start date of the experiment in ISO 8601 format. |
 |`endDate`| Optional | string | End date of the experiment in ISO 8601 format. End date can be null. |
@@ -1089,7 +1090,7 @@ Create a new experiment.
 |`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. |
 |`deployments`| Optional | string array | Array of deployments that the experiment should be assigned to. |
 |`evaluationMode`| Optional | string | Experiment evaluation mode; options include `remote` or `local`. |
-|`experimentType`| Optional | string | Experiment type; options include `hypothesis-testing` or `no-harm`. |
+|`experimentType`| Optional | string | Experiment type; options include `hypothesis-testing`, `no-harm`, or `multi-arm-bandit`. |
 
 #### `variants`
 
@@ -1136,6 +1137,10 @@ A string value representing operations on a property value. Possible values are:
 - `less or equal`
 - `greater`
 - `greater or equal`
+- `set is`
+- `set is not`
+- `set contains`
+- `set does not contain`
 - `glob match`
 - `glob does not match`
 

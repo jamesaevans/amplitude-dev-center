@@ -191,6 +191,22 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
     });
     ```
 
+### Reset
+
+Call `reset()` to when a user logs out to remove the association between that user and their device ID. When the user logs in next time, Amplitude generates a new device ID, and associates it with the user.
+
+=== "TypeScript"
+
+    ```ts
+    ampli.client().reset()
+    ```
+
+=== "JavaScript"
+
+    ```js
+    ampli.client().reset()
+    ```
+
 ### Group
 
 !!! note
