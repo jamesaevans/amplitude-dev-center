@@ -9,7 +9,7 @@ This integration lets you sync cohorts from Amplitude to Chameleon in real time.
 
 !!!tip "This integration is maintained by Chameleon"
 
-    Contact the [Chameleon support team](help@chameleon.io) with any questions about this integration.
+    Contact the [Chameleon support team](mailto:help@chameleon.io?subject=Amplitude%20integration) with any questions about this integration.
 
 ## Considerations
 
@@ -17,8 +17,6 @@ This integration lets you sync cohorts from Amplitude to Chameleon in real time.
 - Users on paid plans Chameleon can access this integration.
 
 ## Setup
-
-For more information on setting up this integration, see Chameleon’s [documentation](https://www.google.com/url?q=https://help.tryChameleon.co/en/articles/6978743-amplitude-integration&sa=D&source=docs&ust=1687850664369621&usg=AOvVaw1mb4YA97gD2HhkgkbDNQbP).
 
 ### Chameleon setup
 
