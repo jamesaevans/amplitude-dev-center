@@ -8,36 +8,31 @@ Amplitude's Webhook integration enables you to forward your Amplitude events and
 ## Use cases
 
 1. **Workflow Automation:** Webhooks are key in automating workflows and connecting disparate systems. They automatically trigger actions based on specified events or conditions. This helps streamline processes, reduce manual interventions, and boost operational efficiency. For example, create a webhook to automate the capture and recording of user consent. When a user accepts the terms of service, the webhook triggers and Amplitude logs the event, streamlining consent management and ensuring compliance and data accuracy.
-
 2. **Additional Flexibility Beyond Standard Streaming Integrations:** Webhooks provide enhanced customization and flexibility beyond standard streaming integrations, enabling real-time data exchange and tailored interactions for dynamic and responsive systems. For example, use a webhook to send specific event data from Amplitude to Braze, a use case the native Amplitude Braze streaming integration doesn't support. This involves transforming an Amplitude user property named `newsletters`, an array with `market` and `newsletter_names`, into a format suitable for Braze. Webhooks also enable you to format event data for Braze, to ensure correct processing as purchase events.
 
-## Prerequisites
+## Setup
+
+### Prerequisites
 
 To configure streaming from Amplitude to your webhook, you need the following information.
 
 - **Webhook URL** The destination URL Amplitude should use to send events and users.
 - **Header Information** You can set up to five extra headers for the webhook request.
 
-## Authentication
-
-Webhook Event Streaming supports [Http Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme). To authenticate your calls:
-
-Add an `Authorization` header with the value: `Basic <hash>` where `<hash>` is the Base64 encoded result 
-
-## Create a new sync
+### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Webhook**.
 3. Enter a sync name, then click **Create Sync**.
 
-## Enter webhook URL
+### Enter webhook URL
 
 Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
 Note that Amplitude doesn't have a single IP address for forwarding events and users, so ensure that your URL can receive payloads from any Amplitude hosts.
 
 See details on [Amplitude's retry mechanism](#amplitudes-retry-mechanism) in case a webhook call fails.
 
-## Select headers
+### Select headers
 
 There are two preset headers for every webhook sync:
 
@@ -50,13 +45,7 @@ After these preset headers, you can define five more headers. To create a new he
 2. Enter the header value on the right side text box
 3. A new header row appears if limit isn't reached
 
-### Authentication
-
-Webhook Event Streaming supports [Http Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme). To authenticate your calls:
-
-Add an `Authorization` header with the value: `Basic <hash>` where `<hash>` is the Base64 encoded result of the `username:password` values of the system the webhook connects to.
-
-## Configure event forwarding
+### Configure event forwarding
 
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Webhook") if you want to stream events to the webhook. When enabled, events are automatically forwarded to the webhook when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
@@ -66,7 +55,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Webh
 
 2. In **Select and filter events** choose which events you want to send. Choose only the events you need in the webhook. _Transformed events aren't supported._
 
-## Configure user forwarding
+### Configure user forwarding
 
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Webhook") if you want to stream users and their properties to the webhook. When enabled, users are sent to the webhook when an event is sent to Amplitude. [Amplitude Identify API](../../analytics/apis/identify-api.md) calls are also forwarded to the webhook. Users aren't sent on a schedule or on-demand using this integration.
 
@@ -74,11 +63,11 @@ Under **Send Users**, make sure the toggle is enabled ("Users are sent to Webhoo
     1. Send the default Amplitude payload which follows the Amplitude [user format](../../analytics/apis/identify-api.md).
     2. Customize the payload using an [Apache FreeMarker](https://freemarker.apache.org/) template. [See more details below](#freemarker-templating-language).
 
-## Enable sync
+### Enable sync
 
 When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
 
-## Amplitude's retry mechanism
+### Amplitude's retry mechanism
 
 Amplitude makes a delivery attempt first on each event or user, and then on failures, Amplitude make nine more attempts over 4 hours, regardless of the error. Amplitude also has a retry mechanism within each attempt: on 5xx errors and 429 throttling. Amplitude does attempt an immediate retry with these policies
 
