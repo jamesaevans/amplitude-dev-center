@@ -22,7 +22,7 @@ Copy the Amplitude API key for your project and have it ready for setup within M
 
 ### MoEngage setup
 
-For more information on how to set up and use this integration, see the [MoEngage documentation](https://partners.moengage.com/hc/en-us/articles/4409507678228-Amplitude).
+For more information on how to set up and use this integration, see the [MoEngage documentation](https://partners.moengage.com/hc/en-us/articles/4409507678228-Amplitude-Audiences#h_01GYA227EXHM2EW55AJMX3ZQC5).
 
 1. In the MoEngage dashboard, navigate to the App Section.
 2. Select **Add App** if you would like to create a new App.
