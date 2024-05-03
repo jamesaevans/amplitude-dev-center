@@ -26,7 +26,7 @@ Before you start to configure the Databricks source in Amplitude, complete the f
 
 Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information about cluster types, see [Compute](https://docs.databricks.com/en/compute/index.html).
 
-![a screenshot indicating where to find server host name and http path](../../assets/images/databricks/server-hostname-http-path.png)
+![a screenshot indicating where to find server host name and http path](../../assets/images/integrations-databricks-import-server-hostname-http-path.png)
 
 3. Add the special requirements for policies and access modes
 
@@ -66,7 +66,7 @@ GCP Databricks:
 
 you will need to grant the Data Reader permission (USE CATALOG, USE SCHEMA, EXECUTE, READ VOLUME, SELECT) to the your workspace user or service principal, whose personal access token is used to authenticate in Amplitude. Otherwise, you will not be able to access the tables in your unity catalog in your import source.
 
-![a screenshot indicating the data reader permissions](../../assets/images/databricks/grant-data-reader-permissions.png)
+![a screenshot indicating the data reader permissions](../../assets/images/integrations-databricks-import-grant-data-reader-permissions.png)
 
 ### Authentication
 
@@ -158,4 +158,5 @@ To verify the data coming into Amplitude:
 - View the Events page of your Tracking Plan
 - Create a Segmentation chart that filters on the event name you specify. 
 - Go to the `Ingestion Jobs` tab in your source. You can view the status of the ingestion and debug using `ERROR LOG` if necessary.
-![a screenshot indicating the ingestion jobs tab](../../assets/images/databricks/ingestion-jobs.png)
+
+![a screenshot indicating the ingestion jobs tab](../../assets/images/integrations-databricks-import-ingestion-jobs.png)
