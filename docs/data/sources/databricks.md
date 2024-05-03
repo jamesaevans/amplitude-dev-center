@@ -28,6 +28,7 @@ Amplitude creates workflows in this cluster on your behalf to start sync jobs. W
 
 ![a screenshot indicating where to find server host name and Http path](../../assets/images/integrations-databricks-import-server-hostname-http-path.png)
 
+> [!IMPORTANT]
 Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
 
 ```json
@@ -37,30 +38,35 @@ Ensure that the new cluster can run jobs by NOT having configs below in cluster'
 }
 ```
 
+> [!IMPORTANT]
 Ensure that the your cluster has python version >= 3.9; Otherwise, you may see the following error in your workflow job:
 
 ```json
 TypeError: 'type' object is not subscriptable
 ```
 
-#### Policies and Access Modes
+#### Cluster Policies and Access Modes
 
-Amplitude supports all policies and access modes. However, if your clusters have the following policies and access modes, grant the Data Reader permission (`USE CATALOG`, `USE SCHEMA`, `EXECUTE`, `READ` `VOLUME`, `SELECT`) to the your workspace user or service principal, whose personal access token is used to authenticate in Amplitude. Otherwise, you can't  access the tables in the unity catalog of your import source.
+Amplitude supports all policies and access modes. However, if your clusters have the following policies and access modes, grant the Data Reader permission (`USE CATALOG`, `USE SCHEMA`, `EXECUTE`, `READ VOLUME`, `SELECT`) to the your workspace user or service principal, whose personal access token is used to authenticate in Amplitude. Otherwise, you can't  access the tables in the unity catalog of your import source.
 
 AWS Databricks:
 
-- Unrestricted - Multi node - No isolation shared
-- Unrestricted - Single node - No isolation shared
-- Power User Compute - No isolation shared
-- Legacy Shared Compute
+Policy | Node | Cluster Access mode 
+--- | --- | ---
+Unrestricted | Multi node | No isolation shared
+Unrestricted | Single node | No isolation shared
+Power User Compute | N/A | No isolation shared
+Legacy Shared Compute | N/A | N/A
 
 GCP Databricks:
 
-- Unrestricted - Multi node - No isolation shared
-- Unrestricted - Single node - No isolation shared
-- Power User Compute - Shared
-- Power User Compute - No isolation shared
-- Legacy Shared Compute
+Policy | Node | Cluster Access mode 
+--- | --- | ---
+Unrestricted | Multi node | No isolation shared
+Unrestricted | Single node | No isolation shared
+Power User Compute | N/A | Shared
+Power User Compute | N/A | No isolation shared
+Legacy Shared Compute | N/A | N/A
 
 ![a screenshot indicating the data reader permissions](../../assets/images/integrations-databricks-import-grant-data-reader-permissions.png)
 
@@ -114,20 +120,21 @@ To add Databricks as a source in Amplitude, complete the following steps.
 ### Select data to import
 
 1. Select the Databricks tables from which Amplitude pulls data.
-2. Select the version of the table(s) that Amplitude imports from. Select **First** or **Latest**.
-First:  
-Latest: 
-3. Select the data type to import from the selected tables. The Databricks source supports three data types.
-    - Event
-    - User properties
-    - Group properties
+2. Select the table version for initial import. Initial import will import everything from table as of the selected version. Select **First** or **Latest**.
+    - `First` means first version, which is 0.  
+    - `Latest` means latest version.
+3. Select the data type for data to be imported. The Databricks source supports three data types.
+    - [Event](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#events)
+    - [User properties](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#user-properties)
+    - [Group properties](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude#account-level-properties-group-properties)
     
     For the **Event** data type, optionally select **Sync User Properties** or **Sync Group Properties** to sync the corresponding properties *within* an event.
 
 4. Set the sync frequency. This frequency determines the interval at which Amplitude pulls data from Databricks.
 5. Configure the SQL command that transforms data in Databricks before Amplitude imports it.
     - Amplitude treats each record in the SQL execution output as an event to be import. See the Example body in the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/#example-body) documentation to ensure each record you import complies.
-    - Amplitude can transform / import from only the tables you specify in step 1 above. TODO: add in an example to explain it
+    - Amplitude can transform / import from only the tables you specify in step 1 above.
+        - For example, if you have access to tables `A`, `B` and `C` but only selected `A` in step 1, then you can only import data from `A`. 
     - The table names you reference in the SQL command must match exactly the name of the table you select in step 1. For example, if you select `catalog.schema.table1`, use that exact value in the SQL.
 
     ```sql title="Sample SQL command"
