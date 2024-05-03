@@ -196,12 +196,27 @@ The `track` tag type is for tracking an event under a specific trigger.
 | --- | --- |
 | `Event Type` | `string`. The name of the event. |
 
-##### Event Properties
+##### Individual Event Properties
 
 | Name  | Description |
 | --- | --- |
 | `Property Name` | `string`. The name of the event property. |
 | `Property Value` | `string`. The value of the event property. |
+
+##### Event Properties Object
+
+Select a GTM variable that returns a valid event properties object. This overwrites the **Individual Event Properties** event properties if there are any duplicate keys. Amplitude ignores any inputs not in the object format and any value under `user_properties` key.
+
+```javascript
+    {
+        'eventPropKey' : 'eventPropValue',
+        'otherEventPropKey': 'otherEventPropValue',
+    }
+```
+
+--8<-- "includes/gtm/google-tag-event-settings.md"
+
+Notice that choosing Google Tag: Event Settings variable as an input in Event Properties Object, the value under `user_properties` will be ignored.
 
 ##### Custom Timestamp 
 
@@ -223,6 +238,8 @@ Set event level groups. With event-level groups, the group designation applies o
 !!!note 
     Identify calls *don't* appear in user look up. The identify calls will set the user properties, and those updated user properties will appear only after the next event fired by the user.
 
+##### Individual operation 
+
 Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/browser-2/#user-properties).
 
 | Name  | Description |
@@ -230,6 +247,21 @@ Add individual user property operations each as its own row in the table. You ca
 | `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
 | `User Property` | `string`. The key of user properties. |
 | `Value` | `string` or others. The value of specific user property. If you want to pass other types, please use GTM variable(Data Layer Variable). |
+
+##### Bulk set operation
+
+Select a GTM variable that returns a valid User Properties object to set multiple user properties at once. Only the values nested under the `user_properties` key are considered for the user properties. This bulk operation only supports the `set` operation. This overwrites the **Individual operation** user properties if there are any duplicate keys.
+
+```javascript
+ {
+    user_properties: 
+        {'userIdentifyKey': 'userIdentifyValue'}
+ }
+```
+
+--8<-- "includes/gtm/google-tag-event-settings.md"
+
+Notice that choosing Google Tag: Event Settings variable as an input in User Properties, only the value under `user_properties` will be considered.
 
 #### setGroup
 
