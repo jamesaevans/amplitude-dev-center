@@ -2,6 +2,7 @@
 title: Android SDK (Maintenance)
 description: The Amplitude Android SDK installation and quick start guide.
 icon: simple/android
+noindex: true
 ---
 
 <!-- vale off -->

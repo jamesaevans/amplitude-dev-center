@@ -2,6 +2,7 @@
 title: Node.js SDK (Maintenance)
 description: The Amplitude Node.js SDK installation and quick start guide.
 icon: simple/nodedotjs
+noindex: true
 ---
 
 [![npm](https://img.shields.io/npm/v/@amplitude/node)](https://www.npmjs.com/package/@amplitude/node)
