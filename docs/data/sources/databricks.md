@@ -14,7 +14,7 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Limitations
 
-- User Look-Up page won't be able to display most recent 100 events ingested through this feature yet
+- The User Look-Up page doesn't display the 100 most recent 100 events ingested.
 
 For guided instructions to setting up this integration, view the [Loom video](https://www.loom.com/share/a00f8905170e4c83977ae6fb2f0dcde7?sid=5a77e8c9-d34b-42b0-a179-679669c8bdbe).
 
@@ -26,7 +26,7 @@ Before you start to configure the Databricks source in Amplitude, complete the f
 
 Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information about cluster types, see [Compute](https://docs.databricks.com/en/compute/index.html).
 
-![a screenshot indicating where to find server host name and http path](../../assets/images/integrations-databricks-import-server-hostname-http-path.png)
+![a screenshot indicating where to find server host name and Http path](../../assets/images/integrations-databricks-import-server-hostname-http-path.png)
 
 Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
 
@@ -45,7 +45,7 @@ TypeError: 'type' object is not subscriptable
 
 #### Policies and Access Modes
 
-We do support all policies and access modes. However, if you clusters have the following policies and access modes,
+Amplitude supports all policies and access modes. However, if your clusters have the following policies and access modes, grant the Data Reader permission (`USE CATALOG`, `USE SCHEMA`, `EXECUTE`, `READ` `VOLUME`, `SELECT`) to the your workspace user or service principal, whose personal access token is used to authenticate in Amplitude. Otherwise, you can't  access the tables in the unity catalog of your import source.
 
 AWS Databricks:
 
@@ -61,8 +61,6 @@ GCP Databricks:
 - Power User Compute - Shared
 - Power User Compute - No isolation shared
 - Legacy Shared Compute
-
-you will need to grant the Data Reader permission (USE CATALOG, USE SCHEMA, EXECUTE, READ VOLUME, SELECT) to the your workspace user or service principal, whose personal access token is used to authenticate in Amplitude. Otherwise, you will not be able to access the tables in your unity catalog in your import source.
 
 ![a screenshot indicating the data reader permissions](../../assets/images/integrations-databricks-import-grant-data-reader-permissions.png)
 
@@ -95,7 +93,7 @@ The service principal you created above requires the following permissions in Da
 | Cluster    | Grants access to connect to the cluster and run workflows on your behalf             | *Compute → All-purpose compute → Edit Permission*  <br/> Add the `Add Can Attach To` permission to the service principal.            |
 | Export     | Enables the service principal to unload your data through spark and export it to S3. | Run the SQL commands below in any notebook: ```GRANT MODIFY ON ANY FILE TO `<service_principal_uuid>`;``` ```GRANT SELECT ON ANY FILE TO `<service_principal_uuid>`;```                                    |
 
-### Enable CDF on your table(s)
+### Enable CDF on your tables
 
 Amplitude uses Databricks' Change Data Feed to continuously import data. To enable CDF on a Databricks table, see [Databricks | Enable change data feed](https://docs.databricks.com/en/delta/delta-change-data-feed.html#enable-change-data-feed)
 
@@ -108,18 +106,18 @@ To add Databricks as a source in Amplitude, complete the following steps.
 1. In Amplitude Data, click **Catalog** and navigate to the **Sources** tab.
 2. Search for **Databricks**.
 3. On the **Credentials** tab of the Connect Databricks screen, enter the credentials you configured during the Databricks configuration:
-    - Server Hostname
-    - HTTP Path
+    - Server hostname
+    - Http Path
     - Personal Access Token (for the workspace user or Service Principal)
 4. Click **Next** to verify access.
 
 ### Select data to import
 
-1. Select the Databricks table(s) from which Amplitude pulls data.
+1. Select the Databricks tables from which Amplitude pulls data.
 2. Select the version of the table(s) that Amplitude imports from. Select **First** or **Latest**.
 First:  
 Latest: 
-3. Select the data type to import from the selected table(s). The Databricks source supports three data types.
+3. Select the data type to import from the selected tables. The Databricks source supports three data types.
     - Event
     - User properties
     - Group properties
