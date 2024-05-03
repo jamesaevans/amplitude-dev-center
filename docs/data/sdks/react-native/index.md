@@ -2,6 +2,7 @@
 title: React Native SDK (Maintenance)
 description: The Amplitude React Native SDK installation and quick start guide.
 icon: simple/react
+noindex: true
 ---
 
 <!-- vale off-->

@@ -2,6 +2,7 @@
 title: iOS SDK (Maintenance)
 description: The Amplitude iOS SDK installation and quick start guide.
 icon: simple/ios
+noindex: true
 ---
 
 
