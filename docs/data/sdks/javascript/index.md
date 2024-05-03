@@ -8,8 +8,6 @@ noindex: true
 <!-- vale off-->
 [![npm version](https://img.shields.io/npm/v/amplitude-js)](https://www.npmjs.com/package/amplitude-js)
 
-This is the official documentation for the Amplitude Analytics JavaScript SDK.
-
 !!!deprecated "Maintenance SDK"
     This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK 2.0](../browser-2/) which supports plugins and more.
 
@@ -30,6 +28,8 @@ This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 --8<-- "includes/size/browser.md"
     For example you can search `amplitude-js@8.21.2`.
+
+This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 ## Install
 
