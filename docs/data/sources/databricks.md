@@ -26,10 +26,8 @@ Before you start to configure the Databricks source in Amplitude, complete the f
 
 Amplitude creates workflows in this cluster on your behalf to start sync jobs. When complete, copy the **Server hostname** and **Http path** values to use in a later step. Find both values on the **Configuration -> JDBC/ODBC** tab. For more information about cluster types, see [Compute](https://docs.databricks.com/en/compute/index.html).
 
-![test](../../assets/images/databricks/server-hostname-http-path.png)
+![a screenshot indicating where to find server host name and http path](../../assets/images/databricks/server-hostname-http-path.png)
 
-1. TODO: need to add a screenshot where to find server hostname and http path
-2. Note the python version realted to the cluster
 3. Add the special requirements for policies and access modes
 
 Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
@@ -41,22 +39,50 @@ Ensure that the new cluster can run jobs by NOT having configs below in cluster'
 }
 ```
 
+Ensure that the your cluster has python version >= 3.9; Otherwise, you may see the following error in your workflow job:
+
+```json
+TypeError: 'type' object is not subscriptable
+```
+
+#### Policies and Access Modes
+
+We do support all policies and access modes. However, if you clusters have the following policies and access modes,
+
+AWS Databricks:
+
+- Unrestricted - Multi node - No isolation shared
+- Unrestricted - Single node - No isolation shared
+- Power User Compute - No isolation shared
+- Legacy Shared Compute
+
+GCP Databricks:
+
+- Unrestricted - Multi node - No isolation shared
+- Unrestricted - Single node - No isolation shared
+- Power User Compute - Shared
+- Power User Compute - No isolation shared
+- Legacy Shared Compute
+
+you will need to grant the Data Reader permission (USE CATALOG, USE SCHEMA, EXECUTE, READ VOLUME, SELECT) to the your workspace user or service principal, whose personal access token is used to authenticate in Amplitude. Otherwise, you will not be able to access the tables in your unity catalog in your import source.
+
+![a screenshot indicating the data reader permissions](../../assets/images/databricks/grant-data-reader-permissions.png)
+
 ### Authentication
 
 Amplitude's Databricks import supports authentication with [personal access tokens for Databricks workspace users](https://docs.databricks.com/en/dev-tools/auth/pat.html#pat-user), or [personal access tokens for Service Principals](https://docs.databricks.com/en/dev-tools/auth/pat.html#pat-sp). Choose Workspace User authentication for faster setup, or Service Principal authentication for finer grained control. For more information, see Databrick's article [Authentication for Databricks Automation](https://docs.databricks.com/en/dev-tools/auth/index.html#authentication-for-databricks-automation---overview)
 
-TODO: change how to do titles here
+#### Create a personal access token (PAT)
 
-#### Get a personal access token (PAT) for the workspace user
+##### For a workspace user
 
 Amplitude's Databricks import uses Personal Access Tokens to authenticate. For the quickest setup, create a PAT for your workspace user in Databricks. For more information, see Databricks' article [Personal Access Tokens for Workspace Users](https://docs.databricks.com/en/dev-tools/auth/pat.html#databricks-personal-access-tokens-for-workspace-users)
 
-#### Create a personal access token (PAT) service principal (optional)
+##### For a service principal
 
 Amplitude recommends that you create a [service principal](https://docs.databricks.com/en/administration-guide/users-groups/service-principals.html) in Databricks to allow for more granular control of access.
 
-TODO: change how we do the hyper link here
-1. Follow the Databricks instructions to create a service principal in [Databricks | OAuth machine-to-machine (M2M) authentication](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html). Copy the **UUID** for use in a later step.
+1. Follow [the Databricks instructions](https://docs.databricks.com/en/dev-tools/auth/oauth-m2m.html) to create a service principal. Copy the **UUID** for use in a later step.
 2. Generate a PAT on this Service Principal.
     
     - If you use AWS or GCP Databricks, follow the instructions in the article [Databricks personal access tokens for service principals](https://docs.databricks.com/en/dev-tools/auth/pat.html#databricks-personal-access-tokens-for-service-principals).
@@ -69,13 +95,7 @@ The service principal you created above requires the following permissions in Da
 | Workspace  | Grants access to your Databricks workspace.                                          | *Workspace → <workspace_name> → Permissions → Add permissions* <br/> Add the service principal you create with the User permission, click Save. |
 | Table      | Grants access to list tables and read data.                                          | *Catalog → pick the catalog→ Permissions → Grant* <br/> Select the `Data Reader` permission (`USE CATALOG`, `USE SCHEMA`, `EXECUTE`, `READ VOLUME`, `SELECT`).             |
 | Cluster    | Grants access to connect to the cluster and run workflows on your behalf             | *Compute → All-purpose compute → Edit Permission*  <br/> Add the `Add Can Attach To` permission to the service principal.            |
-| Export     | Enables the service principal to unload your data through spark and export it to S3. | Run the SQL commands below in any notebook.                                    |
-
-TODO: put the following into the table
-```sql title="Databricks Export permission commands"
-GRANT MODIFY ON ANY FILE TO `<service_principal_uuid>`;
-GRANT SELECT ON ANY FILE TO `<service_principal_uuid>`;
-```
+| Export     | Enables the service principal to unload your data through spark and export it to S3. | Run the SQL commands below in any notebook: ```GRANT MODIFY ON ANY FILE TO `<service_principal_uuid>`;``` ```GRANT SELECT ON ANY FILE TO `<service_principal_uuid>`;```                                    |
 
 ### Enable CDF on your table(s)
 
@@ -137,4 +157,5 @@ To verify the data coming into Amplitude:
 
 - View the Events page of your Tracking Plan
 - Create a Segmentation chart that filters on the event name you specify. 
-- TODO: Job history tabe: event counts
+- Go to the `Ingestion Jobs` tab in your source. You can view the status of the ingestion and debug using `ERROR LOG` if necessary.
+![a screenshot indicating the ingestion jobs tab](../../assets/images/databricks/ingestion-jobs.png)
