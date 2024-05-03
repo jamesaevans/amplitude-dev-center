@@ -28,8 +28,6 @@ Amplitude creates workflows in this cluster on your behalf to start sync jobs. W
 
 ![a screenshot indicating where to find server host name and http path](../../assets/images/integrations-databricks-import-server-hostname-http-path.png)
 
-3. Add the special requirements for policies and access modes
-
 Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
 
 ```json
