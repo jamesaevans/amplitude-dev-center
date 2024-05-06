@@ -51,22 +51,22 @@ Amplitude supports all policies and access modes. However, if your clusters have
 
 AWS Databricks:
 
-Policy | Node | Cluster Access mode 
---- | --- | ---
-Unrestricted | Multi node | No isolation shared
-Unrestricted | Single node | No isolation shared
-Power User Compute | N/A | No isolation shared
-Legacy Shared Compute | N/A | N/A
+| Policy                | Node        | Cluster Access mode |
+|-----------------------|-------------|---------------------|
+| Unrestricted          | Multi node  | No isolation shared |
+| Unrestricted          | Single node | No isolation shared |
+| Power User Compute    | N/A         | No isolation shared |
+| Legacy Shared Compute | N/A         | N/A                 |
 
 GCP Databricks:
 
-Policy | Node | Cluster Access mode 
---- | --- | ---
-Unrestricted | Multi node | No isolation shared
-Unrestricted | Single node | No isolation shared
-Power User Compute | N/A | Shared
-Power User Compute | N/A | No isolation shared
-Legacy Shared Compute | N/A | N/A
+| Policy                | Node        | Cluster Access mode |
+|-----------------------|-------------|---------------------|
+| Unrestricted          | Multi node  | No isolation shared |
+| Unrestricted          | Single node | No isolation shared |
+| Power User Compute    | N/A         | Shared              |
+| Power User Compute    | N/A         | No isolation shared |
+| Legacy Shared Compute | N/A         | N/A                 |
 
 ![a screenshot indicating the data reader permissions](../../assets/images/integrations-databricks-import-grant-data-reader-permissions.png)
 
@@ -118,24 +118,17 @@ To add Databricks as a source in Amplitude, complete the following steps.
 4. Click **Next** to verify access.
 
 ### Select data to import
+1. Select the data type for data to be imported. The Databricks source supports three data types.
+   - [Event](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#events)
+   - [User properties](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#user-properties)
+   - [Group properties](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude#account-level-properties-group-properties)
 
-1. Select the Databricks tables from which Amplitude pulls data.
-2. Select the table version for initial import. Initial import will import everything from table as of the selected version. Select **First** or **Latest**.
-    - `First` means first version, which is 0.  
-    - `Latest` means latest version.
-3. Select the data type for data to be imported. The Databricks source supports three data types.
-    - [Event](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#events)
-    - [User properties](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#user-properties)
-    - [Group properties](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude#account-level-properties-group-properties)
-    
-    For the **Event** data type, optionally select **Sync User Properties** or **Sync Group Properties** to sync the corresponding properties *within* an event.
-
-4. Set the sync frequency. This frequency determines the interval at which Amplitude pulls data from Databricks.
-5. Configure the SQL command that transforms data in Databricks before Amplitude imports it.
-    - Amplitude treats each record in the SQL execution output as an event to be import. See the Example body in the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/#example-body) documentation to ensure each record you import complies.
-    - Amplitude can transform / import from only the tables you specify in step 1 above.
-        - For example, if you have access to tables `A`, `B` and `C` but only selected `A` in step 1, then you can only import data from `A`. 
-    - The table names you reference in the SQL command must match exactly the name of the table you select in step 1. For example, if you select `catalog.schema.table1`, use that exact value in the SQL.
+   For the **Event** data type, optionally select **Sync User Properties** or **Sync Group Properties** to sync the corresponding properties *within* an event.
+2. Configure the SQL command that transforms data in Databricks before Amplitude imports it.
+   - Amplitude treats each record in the SQL execution output as an event to be import. See the Example body in the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/#example-body) documentation to ensure each record you import complies.
+   - Amplitude can transform / import from only the tables you specify in step 1 above.
+      - For example, if you have access to tables `A`, `B` and `C` but only selected `A` in step 1, then you can only import data from `A`.
+   - The table names you reference in the SQL command must match exactly the name of the table you select in step 1. For example, if you select `catalog.schema.table1`, use that exact value in the SQL.
 
     ```sql title="Sample SQL command"
     select 
@@ -147,10 +140,13 @@ To add Databricks as a source in Amplitude, complete the following steps.
         named_struct('group_property', "group_property_value")                 as group_properties
     from catalog.schema.table1;
     ```
-
-6. After you add the SQL, click **Test SQL**. Amplitude runs a test against your Databricks instance to ensure the SQL is valid. Click **Next**.
-7. Enter a descriptive name for this instance of the source.
-8. The source appears in your workspace's Sources list.
+3. After you add the SQL, click **Test SQL**. Amplitude runs a test against your Databricks instance to ensure the SQL is valid. Click **Next**.
+4. Select the table version for initial import. Initial import will import everything from table as of the selected version. Select **First** or **Latest**.
+    - `First` means first version, which is 0.  
+    - `Latest` means latest version.
+5. Set the sync frequency. This frequency determines the interval at which Amplitude pulls data from Databricks.
+6. Enter a descriptive name for this instance of the source.
+7. The source appears in your workspace's Sources list.
 
 ## Verify data import
 
