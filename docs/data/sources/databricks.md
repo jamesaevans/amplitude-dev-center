@@ -14,7 +14,7 @@ Amplitude's Databricks import source enables you to import data from Databricks 
 
 ## Limitations
 
-- The User Look-Up page doesn't display the 100 most recent 100 events ingested.
+- The User Look-Up page doesn't display 100 most recent events ingested.
 
 For guided instructions to setting up this integration, view the [Loom video](https://www.loom.com/share/a00f8905170e4c83977ae6fb2f0dcde7?sid=5a77e8c9-d34b-42b0-a179-679669c8bdbe).
 
@@ -28,22 +28,24 @@ Amplitude creates workflows in this cluster on your behalf to start sync jobs. W
 
 ![a screenshot indicating where to find server host name and Http path](../../assets/images/integrations-databricks-import-server-hostname-http-path.png)
 
-> [!IMPORTANT]
-Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
+!!!note "Important"
 
-```json
-"workload_type.clients.jobs": {
-    "type": "fixed",
-    "value": false
-}
-```
+    Ensure that the new cluster can run jobs by NOT having configs below in cluster's policy. See details in Databricks' article [Policy definition](https://docs.databricks.com/en/administration-guide/clusters/policy-definition.html#workload).
 
-> [!IMPORTANT]
-Ensure that the your cluster has python version >= 3.9; Otherwise, you may see the following error in your workflow job:
+    ```json
+    "workload_type.clients.jobs": {
+        "type": "fixed",
+        "value": false
+    }
+    ```
 
-```json
-TypeError: 'type' object is not subscriptable
-```
+!!!note "Important"
+
+    Ensure that the your cluster has python version >= 3.9; Otherwise, you may see the following error in your workflow job:
+
+    ```json
+    TypeError: 'type' object is not subscriptable
+    ```
 
 #### Cluster Policies and Access Modes
 
@@ -118,17 +120,19 @@ To add Databricks as a source in Amplitude, complete the following steps.
 4. Click **Next** to verify access.
 
 ### Select data to import
-1. Select the data type for data to be imported. The Databricks source supports three data types.
-   - [Event](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#events)
-   - [User properties](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#user-properties)
-   - [Group properties](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude#account-level-properties-group-properties)
 
-   For the **Event** data type, optionally select **Sync User Properties** or **Sync Group Properties** to sync the corresponding properties *within* an event.
+1. Select the data type for data to be imported. The Databricks source supports three data types:
+    - [Event](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#events)
+    - [User properties](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/#user-properties)
+    - [Group properties](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude#account-level-properties-group-properties)
+   
+    For the **Event** data type, optionally select **Sync User Properties** or **Sync Group Properties** to sync the corresponding properties *within* an event.
+
 2. Configure the SQL command that transforms data in Databricks before Amplitude imports it.
-   - Amplitude treats each record in the SQL execution output as an event to be import. See the Example body in the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/#example-body) documentation to ensure each record you import complies.
-   - Amplitude can transform / import from only the tables you specify in step 1 above.
-      - For example, if you have access to tables `A`, `B` and `C` but only selected `A` in step 1, then you can only import data from `A`.
-   - The table names you reference in the SQL command must match exactly the name of the table you select in step 1. For example, if you select `catalog.schema.table1`, use that exact value in the SQL.
+    - Amplitude treats each record in the SQL execution output as an event to be import. See the Example body in the [Batch Event Upload API](/analytics/apis/batch-event-upload-api/#example-body) documentation to ensure each record you import complies.
+    - Amplitude can transform / import from only the tables you specify in step 1 above.
+       - For example, if you have access to tables `A`, `B` and `C` but only selected `A` in step 1, then you can only import data from `A`.
+    - The table names you reference in the SQL command must match exactly the name of the table you select in step 1. For example, if you select `catalog.schema.table1`, use that exact value in the SQL.
 
     ```sql title="Sample SQL command"
     select 
@@ -140,6 +144,7 @@ To add Databricks as a source in Amplitude, complete the following steps.
         named_struct('group_property', "group_property_value")                 as group_properties
     from catalog.schema.table1;
     ```
+
 3. After you add the SQL, click **Test SQL**. Amplitude runs a test against your Databricks instance to ensure the SQL is valid. Click **Next**.
 4. Select the table version for initial import. Initial import will import everything from table as of the selected version. Select **First** or **Latest**.
     - `First` means first version, which is 0.  
