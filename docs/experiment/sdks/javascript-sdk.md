@@ -253,6 +253,47 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     });
     ```
 
+???mparticle "mParticle integration (click to open)"
+
+    Experiment's integration with mParticle requires manual integration. The values you use for `user_id` and `device_id` depend on your specific configuration.
+
+    In accordance with your event forwarding settings to Amplitude, the event type `Other` may not be the right classification. Make sure that the event type you use is forwarded to Amplitude in destination settings.
+
+    ```js
+    const identityRequest = {
+        userIdentities: {
+            email: "joe_slow@gmail.com",
+            customerid: "abcdxyz"
+        }
+    };
+    mParticle.Identity.login(identityRequest, () => {
+        console.log("Identity callback");
+    });
+
+    const experiment = Experiment.initialize("DEPLOYMENT_KEY", {
+        exposureTrackingProvider: {
+            track: (exposure) => {
+                window.mParticle.logEvent('$exposure', window.mParticle.EventType.Other, exposure);
+            }
+        },
+        userProvider: {
+            getUser: () => {
+                const user_id = window.mParticle.Identity.getCurrentUser().getUserIdentities().userIdentities.customerid;
+                const device_id = window.mParticle.getDeviceId();
+                if (user_id != null) {
+                    return {
+                        user_id: user_id,
+                        device_id: device_id
+                    };
+                    else
+                        return {
+                            device_id: device_id
+                        };
+                }
+            }
+        }
+    });
+    ```
 ---
 
 ### Start
