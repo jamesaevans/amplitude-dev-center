@@ -40,6 +40,7 @@ Fetch a list of experiments including their configuration details. Results are o
 | --- | --- |
 | `limit` | The max number of experiments to be returned. Capped at 1000. |
 | `cursor` | The offset to start the "page" of results from. |
+| `includeArchived` | Optional. Boolean. By default it is false. When false, only return active experiments. When true, return active and archived experiments. |
 
 ### Response
 
@@ -66,7 +67,7 @@ A successful request returns a `200 OK` response and a list of experiments encod
                 "decision": null,
                 "decisionReason": null,
                 "description": "description",
-                "enabled": false,
+                "enabled": true,
                 "evaluationMode": "remote",
                 "bucketingKey": "amplitude_id",
                 "bucketingSalt": <bucketingSalt>,
