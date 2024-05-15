@@ -1,7 +1,7 @@
 ### Bitmap Capture
 
 !!!info "Bitmap Capture is disabled by default"
-    Enabling bitmap capture may greatly increase the amount of CPU and memory used by the Session Replay SDK. This performance will be improved in future releases.
+    Enabling bitmap capture may increase the amount of CPU and memory used by the Session Replay SDK. This performance will be improved in future releases.
 
 To enable bitmap capture, use one or more of the following
 
