@@ -159,7 +159,7 @@ extra:
   generator: false #hides the generated with text in the footer
   android:
     session_replay:
-      version: 0.5+
+      version: 0.6+
   browser:
     session_replay:
       plugin:
