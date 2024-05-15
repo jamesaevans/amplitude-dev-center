@@ -152,6 +152,8 @@ if (nonEUCountryFlagEnabled) {
 }
 ```
 
+--8<-- "includes/session-replay/bitmap-capture-android.md"
+
 --8<-- "includes/session-replay/data-retention.md"
 
 --8<-- "includes/session-replay/replay-storage-android.md"
