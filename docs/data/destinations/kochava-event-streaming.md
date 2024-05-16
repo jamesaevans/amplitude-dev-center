@@ -3,10 +3,6 @@ title: Kochava Event Streaming (Installs)
 description: Stream Amplitude events to Kochava (Installs)
 ---
 
-!!!beta "This feature is in Closed beta"
-
-    This feature is in Closed Beta and is in active development. Contact your Amplitude Client Success Manager for support with this integration.
-
 ## About Kochava
                                                                                                                                                                                                                                              
 [Kochava](https://www.kochava.com) empowers advertisers and publishers with a platform to help growth marketers. Kochava delivers what marketers need, when they need it, to establish customer identity and segment and activate audiences in a privacy-first world.
