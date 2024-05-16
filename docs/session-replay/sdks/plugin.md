@@ -42,23 +42,23 @@ Configure your application code.
 import * as amplitude from '@amplitude/analytics-browser';
 import { sessionReplayPlugin } from '@amplitude/plugin-session-replay-browser';
 
-// Your existing initialization logic with Browser SDK
-amplitude.init(API_KEY);
-
 // Create and Install Session Replay Plugin
 const sessionReplayTracking = sessionReplayPlugin();
-amplitude.add(sessionReplayTracking);
+await amplitude.add(sessionReplayTracking).promise;
+// Your existing initialization logic with Browser SDK
+amplitude.init(API_KEY);
 ```
 
 You can also add the code directly to the `<head>` of your site. With this method, be sure that the Browser SDK isn't initialized elsewhere in your application. If you initialize the Browser SDK more than once, you may see mismatches in Device ID or Session ID.
 
 ```html
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
+<script src="https://cdn.amplitude.com/libs/analytics-browser-@{$browser.sdk.version$}-min.js.gz"></script>
 <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-@{$ browser.session_replay.plugin.version $}-min.js.gz"></script>
 <script>
-window.amplitude.init(API_KEY)
 const sessionReplayTracking = window.sessionReplay.plugin();
-window.amplitude.add(sessionReplayTracking);
+window.amplitude.add(sessionReplayTracking).promise.then(function() {
+  window.amplitude.init(API_KEY)
+});
 </script>
 ```
 
