@@ -8,7 +8,7 @@ status: new
 
 !!!Tip
 
-    This integration is maintained by Humanic AI. Email **care@humanic.ai** for support with this integration. 
+    This integration is maintained by Humanic AI. Email [care@humanic.ai](mailto:care@humanic.ai) for support with this integration. 
 
 ## Considerations
 
