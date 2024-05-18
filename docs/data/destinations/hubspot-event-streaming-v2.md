@@ -19,7 +19,7 @@ description: Send Amplitude events to HubSpot automatically with just a few clic
 
 Keep these things in mind when sending events to HubSpot:
 
-- If you have an existing HubSpot streaming sync [[HubSpot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/HubSpot-event-streaming/), and you want to access these new functionalities, you will need to setup a new Event streaming connection by clicking on HubSpot V2 in the Data Catalog. With this update, events and their properties, will now be sent to different event definitions in HubSpot, matching each of the selected events, rather than the single event definition from the inputted internal event name.
+- If you have an existing HubSpot streaming sync [HubSpot streaming integration](/data/destinations/HubSpot-event-streaming/), and you want to access these new features, select HubSpot V2 in the Data Catalog to create a new Event streaming connection . With this update, Amplitude sends events and their properties to different event definitions in HubSpot, matching each of the selected events, rather than the single event definition from the internal event name.
 - You must enable this integration in each Amplitude project you want to use it in.
 - Events from Amplitude appear as Custom Behavioral Events in HubSpot.
 - A HubSpot Enterprise Marketing Hub account is required to send Custom Behavioral Events.
