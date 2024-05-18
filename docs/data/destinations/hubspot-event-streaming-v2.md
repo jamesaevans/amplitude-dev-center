@@ -7,7 +7,7 @@ description: Send Amplitude events to HubSpot automatically with just a few clic
 
 !!!info "This integration is in Closed Beta"
 
-    This feature is in Closed Beta and is in active development. Email integrations@amplitude.com if you are interested in getting access. Unlike the [HubSpot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/HubSpot-event-streaming/), this integration will automatically create the necessary custom event definitions and properties in HubSpot, rather than requiring they be created manually. 
+    This feature is in Closed Beta and is in active development. Email [integrations@amplitude.com](mailto:integrations@amplitude.com] for more information. Unlike the [HubSpot streaming integration](/data/destinations/HubSpot-event-streaming/), this integration automatically creates the necessary custom event definitions and properties in HubSpot, rather than requiring you to create them manually. 
 
 ## Use cases
 
