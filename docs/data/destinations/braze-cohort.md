@@ -67,6 +67,6 @@ To sync your first cohort, follow these steps:
 
 ## Frequently asked questions
 
-??? note "Why can't I see the list of users in Braze?"
+### Why can't I see the list of users in Braze?
 
 When you sync a cohort, Braze matches users in that cohort with users that already exist in Braze, and doesn't create new users. Make sure users in your Amplitude cohort have a matching user (`userId`) in Braze.
