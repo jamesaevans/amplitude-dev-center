@@ -5,7 +5,7 @@ description: The Lookup Table API lets you create, get, update, and delete looku
 
 Lookup tables let you augment user and event properties. Instead of using formulas, you can upload a CSV file that contains property mappings to derive new properties. 
 
-To create a lookup property, create a lookup table to reference. You can retrieve and update each of the tables using the API. Lookup Tables are identified by the name and are scoped per project.
+To create a lookup property, create a lookup table to reference. You can retrieve and update each of the tables using the API. Lookup Tables have unique names and have a project scope.
 
 You can also create and manage lookup tables from the Amplitude web app. See [Lookup Table](/data/sources/lookup-table) for more information.
 
@@ -22,13 +22,13 @@ You can also create and manage lookup tables from the Amplitude web app. See [Lo
 
 ## Considerations
 
-The CSV file must comply with the following requirements:
+The CSV file must follow the following requirements:
 
 - The max file size is 100 MB and the file can't have more than 1,000,000 rows.
 - The first row must contain column names/headers.
 - The first column must correspond to the mapping property value and must contain *unique* values. Lookup Tables search for exact matches, and are *case-sensitive*.
-- Columns must be separated by commas.
-- Rows must be separated by line breaks.
+- Columns are separated by commas.
+- Rows are separated by line breaks.
 - If a field value contains commas or quotes, it should be wrapped within double quotation marks. The first double quote signifies the beginning of the column data, and the last double quote marks the end. If the value contains a string with double quotes, these are replaced by two double quotes `""`.
 
 ## Create a Lookup Table
@@ -175,9 +175,9 @@ Retrieve a Lookup Table by its name.
     }
     ```
 
-## Download CSV
+## Download csv
 
-Download the lookup table object as a CSV. Any incremental changes that have been made are applied in the downloaded file
+Download the lookup table object as a CSV. Any incremental changes are applied in the downloaded file
 
 ### Parameters
 
@@ -281,7 +281,7 @@ Override a Lookup Table object by uploading a CSV that replaces the CSV already 
 
 ## Update a Lookup Table
 
-Update a Lookup Table's columns and data. If a CSV file is provided, it is merged with the existing CSV within Amplitude. This allows for incremental updates of the CSV, instead of a complete replacement. If a property is provided, it updates the mapped property of the table.
+Update a Lookup Table's columns and data. If a CSV file is provided, the file is merged with the existing CSV within Amplitude. This allows for incremental updates of the CSV, instead of a complete replacement.
 
 ### Parameters
 
@@ -493,8 +493,8 @@ All the above lookup table APIs share common error codes as described below.
 |LOOKUP_TABLE_INVALID_NUMBER_OF_ROWS| Created/Edited a lookup table using a file with more than 1mil rows.|
 |LOOKUP_TABLE_KEY_COLUMN_DUPLICATE_VALUES| Specified key column has duplicate values.|
 |LOOKUP_TABLE_INVALID_TABLE_NAME| Provided name is invalid.|
-|LOOKUP_TABLE_MALFORMED_CSV| Provided CSV couldn't be processed correctly. See error message for more details.|
+|LOOKUP_TABLE_MALFORMED_CSV| Provided CSV not processed correctly. See error message for more details.|
 |LOOKUP_TABLE_INVALID_INPUT| Input for field doesn't match expectation. See error message for more details.|
 |LOOKUP_TABLE_ALREADY_EXISTS| Created a table that already exists in the provided project.|
 |LOOKUP_TABLE_DOES_NOT_EXIST| Attempted to load or edit table that doesn't exist.|
-|LOOKUP_TABLE_INVALID_COLUMN_HEADERS| Column headers in file couldn't be processed.|
+|LOOKUP_TABLE_INVALID_COLUMN_HEADERS| Column headers in file not processed correctly.|
