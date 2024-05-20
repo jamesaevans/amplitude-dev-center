@@ -4,7 +4,7 @@ description: Sync cohorts from Amplitude to CommandBar
 status: new
 ---
 
-[CommandBar](https://www.commandbar.com/) is an AI-powered user assistance platform that makes your product easier to use, without the old-school method of interrupting popups that users quickly close. Activate and retain more users through personalized, interactive in-product experiences that mimic what a human assistant would do. For example, Copilot chat (the only chatbot that can co-browse with users) and just-in-time proactive nudges that trigger when a user appears confused. This integration lets you sync cohorts from Amplitude to CommandBar to personalize CommandBar experiences using the same cohorts you analyze in Amplitude.
+[CommandBar](https://www.commandbar.com/) is an AI-powered user assistance platform that makes your product easier to use, without the old-school method of interrupting popups that users quickly close. Activate and retain more users through personalized, interactive in-product experiences that mimic what a human assistant would do. For example, Copilot chat (the only chatbot that can co-browse with users) and just-in-time proactive nudges that trigger when a user appears confused. This integration lets you sync cohorts from Amplitude to CommandBar to drive personalized experiences.
 
 !!!Tip
 
