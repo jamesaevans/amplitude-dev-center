@@ -74,6 +74,8 @@ Cocoapods
 cocoapods
 Compat
 compat
+commandbar
+CommandBar
 concat
 cond
 Convizit
