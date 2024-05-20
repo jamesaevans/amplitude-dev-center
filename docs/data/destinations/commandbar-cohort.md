@@ -47,6 +47,7 @@ To sync your first cohort, follow these steps:
 ## Locating your cohort in CommandBar
 
 Cohorts are available for use across many parts of CommandBar.
+
 1. **Audiences:** From https://app.commandbar.com/editor/audiences, you can edit or create an audience. In the condition dropdown, select “Amplitude Cohort” and then select your desired cohort. Audiences can be used to personalize nudge targeting, HelpHub recommendation sets, Copilot behavior, and more.
 2. **Nudges:** For any nudge (e.g., product tour, survey, or checklist), you can use your Amplitude cohort in the “Targeting” → “Who” rules. After choosing a “Custom” condition, you can select “Amplitude Cohort” and then select your desired cohort.
 
