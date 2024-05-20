@@ -359,6 +359,7 @@ nav:
         - CleverTap: data/destinations/clevertap-cohort.md
         - Chameleon: data/destinations/chameleon-cohort.md
         - Cohort Webhooks: data/destinations/cohort-webhooks.md
+        - CommandBar: data/destinations/commandbar-cohort.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
