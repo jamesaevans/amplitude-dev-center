@@ -175,9 +175,9 @@ Retrieve a Lookup Table by its name.
     }
     ```
 
-## Download Lookup Table CSV
+## Download CSV
 
-Download the lookup table object as a CSV. Any incremental changes that have been made will be applied in the downloaded file
+Download the lookup table object as a CSV. Any incremental changes that have been made are applied in the downloaded file
 
 ### Parameters
 
@@ -204,7 +204,7 @@ Download the lookup table object as a CSV. Any incremental changes that have bee
 
 ## Override a Lookup Table
 
-Replace a Lookup Table object by uploading a CSV that will replace the CSV already uploaded to Amplitude. Send the request with the type multipart/form-data type.
+Override a Lookup Table object by uploading a CSV that replaces the CSV already uploaded to Amplitude. Send the request with the type multipart/form-data type.
 
 ### Parameters
 
@@ -281,7 +281,7 @@ Replace a Lookup Table object by uploading a CSV that will replace the CSV alrea
 
 ## Update a Lookup Table
 
-Update a Lookup Table's columns and data. If a CSV file is provided, it will merge with the existing CSV within Amplitude. This allows for incremental updates of the CSV, instead of a complete replacement. A property can also be provided to update the mapped property in Amplitude.
+Update a Lookup Table's columns and data. If a CSV file is provided, it is merged with the existing CSV within Amplitude. This allows for incremental updates of the CSV, instead of a complete replacement. If a property is provided, it updates the mapped property of the table.
 
 ### Parameters
 
@@ -469,16 +469,16 @@ List all the Lookup Tables for the project.
 
 ## Error Codes
 
-All of the above lookup table apis share common error codes as described below.
+All the above lookup table APIs share common error codes as described below.
 
 ### Structure
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`statusCode` | HTTP Status code of error. 400, 409, 413 |
+|`statusCode` | Http status code of error. 400, 409, 413 |
 |`message` | Human readable message describing the error | 
 |`errorCode` | Static error code string |
-|`extraParams`| Each error might have extra params in the response to help better point to the exact reason for the error|
+|`extraParams`| Each error might have extra parameters in the response to help better point to the exact reason for the error|
 
 ### Types
 
@@ -486,15 +486,15 @@ All of the above lookup table apis share common error codes as described below.
 |-----|------|
 |LOOKUP_TABLE_INVALID_FILE_COUNT| Attempted to upload more than 1 file for a single lookup table.|
 |LOOKUP_TABLE_INVALID_FILE_SIZE | Created/Edited a lookup table using a file bigger than 100mb. |
-|LOOKUP_TABLE_INVALID_FILE_TYPE| Created/Edited a lookup table using a file that was not a CSV. |
+|LOOKUP_TABLE_INVALID_FILE_TYPE| Created/Edited a lookup table using a file that wasn't a CSV. |
 |LOOKUP_TABLE_INVALID_KEY_COLUMN| Created a lookup table with a "key" input not present in the headers of the table.|
 |LOOKUP_TABLE_INVALID_VALUE_COLUMN| Cell in uploaded file exceeds 1,024 characters. |
-|LOOKUP_TABLE_INVALID_KEY_PROPERTY| Provided key property does not exist in Amplitude. |
+|LOOKUP_TABLE_INVALID_KEY_PROPERTY| Provided key property doesn't exist in Amplitude. |
 |LOOKUP_TABLE_INVALID_NUMBER_OF_ROWS| Created/Edited a lookup table using a file with more than 1mil rows.|
 |LOOKUP_TABLE_KEY_COLUMN_DUPLICATE_VALUES| Specified key column has duplicate values.|
 |LOOKUP_TABLE_INVALID_TABLE_NAME| Provided name is invalid.|
-|LOOKUP_TABLE_MALFORMED_CSV| Provided CSV could not be processed correctly. See error message for more details.|
-|LOOKUP_TABLE_INVALID_INPUT| Input for field does not match expectation. See error message for more details.|
+|LOOKUP_TABLE_MALFORMED_CSV| Provided CSV couldn't be processed correctly. See error message for more details.|
+|LOOKUP_TABLE_INVALID_INPUT| Input for field doesn't match expectation. See error message for more details.|
 |LOOKUP_TABLE_ALREADY_EXISTS| Created a table that already exists in the provided project.|
-|LOOKUP_TABLE_DOES_NOT_EXIST| Attempted to load or edit table that does not exist.|
-|LOOKUP_TABLE_INVALID_COLUMN_HEADERS| Column headers in file could not be processed.|
+|LOOKUP_TABLE_DOES_NOT_EXIST| Attempted to load or edit table that doesn't exist.|
+|LOOKUP_TABLE_INVALID_COLUMN_HEADERS| Column headers in file couldn't be processed.|
