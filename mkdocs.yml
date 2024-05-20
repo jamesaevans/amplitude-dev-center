@@ -511,6 +511,7 @@ nav:
       - Reference: analytics/apis/http-v2-api.md
     - Identify: analytics/apis/identify-api.md
     - Lookup Tables (Deprecated): analytics/apis/lookup-tables-api.md
+    - Lookup Tables (v3): data/apis/lookup-tables-api.md
     - Releases: analytics/apis/releases-api.md
     - SCIM: analytics/apis/scim-api.md
     - Taxonomy: analytics/apis/taxonomy-api.md
