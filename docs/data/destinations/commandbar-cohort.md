@@ -52,18 +52,9 @@ Cohorts are available for use across many parts of CommandBar.
 
 ## Use Cases
 
-1. **Feature Adoption:**
-  - **Scenario:** After poring through analytics reports, you have an epiphany – a particular cohort of users in Amplitude frequently visits your app, but never discovers your team’s sickest feature!
-  - **Unlock:** You tailor tooltips to this cohort with CommandBar, helping them discover the feature and achieve greatness with it.
-2. **User Onboarding:**
-  - **Scenario:** New users are placed into an "onboarding" cohort in Amplitude.
-  - **Unlock:** You create a step-by-step onboarding guide in CommandBar, providing contextual help and tips exactly when users need them (and without annoying them). Even better if you can further segment the “new users” cohort into thinner slices. For example, based on an onboarding survey (which you can also build with CommandBar), or the channel through which they created an account (for example – direct, blog post, ad, etc).
-3. **Customer Support Efficiency:**
-  - **Scenario:** Support tickets are going through the roof. Your team creates a cohort in Amplitude to better understand users who have submitted multiple support tickets on a specific issue or from a specific page.
-  - **Unlock:** You create some custom Playbooks for Copilot chat that handle the scenarios your users are asking about (including the ability for Copilot to lainch interactive tours).
-4. **Retention Campaigns:**
-  - **Scenario:** A cohort of users in Amplitude show signs of inactivity and are flagged as high churn risk. 
-  - **Unlock:** With CommandBar, you use Nudges to craft re-engagement messages and offer these users discounted pricing.
-5. **Freemium to Premium:**
-  - **Scenario:** The team has seen slower-than-expected conversion rates for the “Free tier” cohort.
-  - **Unlock:** Using CommandBar Tooltips, you sprinkle visual cues throughout the app to indicate features that are only available to premium users. But you don’t stop there! You develop a series of in-app paywalls that catch users in various flows to nudge them towards a trial of your premium tier.
+1. **Feature Adoption:** You've discovered that a particular cohort of Amplitude users frequently visits your app but misses out on a key feature. Use CommandBar to tailor tooltips for this cohort, helping them discover and utilize the feature effectively.
+2. **User Onboarding:** New users are added to an "onboarding" cohort in Amplitude. Create a step-by-step onboarding guide in CommandBar, offering contextual help and tips. Further segment this cohort based on an onboarding survey or account creation channel.
+3. **Customer Support Efficiency:** Support tickets are surging. Your team creates a cohort in Amplitude to understand users with multiple tickets on a specific issue. Develop custom Playbooks for Copilot chat to handle common user queries and launch interactive tours.
+4. **Retention Campaigns:** A cohort of Amplitude users shows inactivity and high churn risk. Use CommandBar Nudges to send re-engagement messages and offer discounts to these users.
+5. **Freemium to Premium:** Conversion rates for the “Free tier” cohort are slower than expected. Implement CommandBar Tooltips to highlight premium features and create in-app paywalls to encourage trial of the premium tier.
+6. **Enhanced Onboarding Segmentation:** You want to refine the onboarding experience for new users. Segment new users further based on survey responses or the channel through which they joined, providing tailored onboarding steps with CommandBar.
