@@ -219,18 +219,6 @@ You can also use advanced configuration for better control of how marketing attr
     `config.defaultTracking.attribution.initialEmptyValue` | Optional. `string` | Sets the value to represent undefined/no initial campaign parameter for first-touch attribution. The default value is `"EMPTY`. |
     `config.defaultTracking.attribution.resetSessionOnNewCampaign` | Optional. `boolean` | Configures Amplitude to start a new session if any campaign parameter changes. The default value is `false`. |
 
-For example, you can configure Amplitude to track marketing attribution separately for each of your subdomains. Refer to the code sample for how to achieve this.
-
-```ts
-amplitude.init(AMPLITUDE_API_KEY, {
-  defaultTracking: {
-    attribution: {
-      excludeReferrers: [location.hostname],
-    },
-  },
-});
-```
-
 ###### Exclude referrers
 
 !!! note 
@@ -240,6 +228,48 @@ amplitude.init(AMPLITUDE_API_KEY, {
 The default value of `config.defaultTracking.attribution.excludeReferrers` is the top level domain with cookie storage enabled. For example, if you initialize the SDK on `https://www.docs.developers.amplitude.com/`, the SDK first checks `amplitude.com`. If it doesn't allow cookie storage, then the SDK checks `developers.amplitude.com` and subsequent subdomains. If it allows cookie storage, then the SDK sets `excludeReferrers` to an RegExp object `/amplitude\.com$/` which matches and then exlucdes tracking referrers from all subdomains of `amplitude.com`, for example, `data.amplitude.com`, `analytics.amplitude.com` and etc. 
 
 In addition to excluding referrers from the default configuration, you can add other domains by setting the custom `excludeReferrers`. Custom `excludeReferrers` overrides the default values. For example, to also exclude referrers from `google.com`, set `excludeReferrers` to `[/amplitude\.com$/, 'google.com']`.
+
+!!!example "Referrer Examples"
+
+    ???code-example "Example of including all referrers. (click to expand)"
+        Track complete web attribution, including self-referrals, for comprehensive insight.
+
+        ```ts
+        amplitude.init(AMPLITUDE_API_KEY, {
+          defaultTracking: {
+            attribution: {
+              // Override the default setting to exclude all subdomains
+              excludeReferrers: [],
+            },
+          },
+        });
+        ```
+
+    ???code-example "Example of excluding all self-referrals and other subdomain (click to expand)"
+        For customers who want to exclude tracking campaign from any referrers across all subdomains of `your-domain.com`, as well as from a specific subdomain.
+
+        ```ts
+        amplitude.init(AMPLITUDE_API_KEY, {
+           defaultTracking: {
+            attribution: {
+              excludeReferrers: [/your-domain\.com$/, 'www.test.com'],
+            },
+          },
+        });
+        ```
+
+    ???code-example "Exclude referrers that match a specific pattern (click to expand)"
+        For customers who want to exclude tracking campaign from all referrers across all subdomains of `test.com`.
+
+        ```ts
+        amplitude.init(AMPLITUDE_API_KEY, {
+          defaultTracking: {
+            attribution: {
+              excludeReferrers: [/test\.com$/],
+            },
+          },
+        });
+        ```
 
 #### Tracking page views
 
@@ -451,7 +481,21 @@ amplitude.init(AMPLITUDE_API_KEY, {
 
 ### Marketing Attribution Tracking
 
-Amplitude tracks marketing attribution by default. Once you enable marketing attribution tracking, Amplitude generates `identify` events to assign the campaign value in certain cases. This ensures that user properties update and influence future events. 
+Amplitude tracks marketing attribution and exclude all the referrer from all subdomain by default. Once you enable marketing attribution tracking, Amplitude generates `identify` events to assign the campaign value in certain cases. This ensures that user properties update and influence future events.
+
+#### Tracking scenarios
+
+Amplitude track marketing attribution changes while
+
+##### Amplitude SDK initialization (Hard page refresh)
+
+- At the start of a session, the referrer isn't excluded and campaign has any change or customer first visit.
+- In the middle of the session, the referrer isn't excluded, not direct traffic, and campaign has any change.
+
+##### Processing the event
+
+- At the start of a session, the referrer isn't excluded, and campaign has any change.
+
 For more information, see the scenarios outlined below that demonstrate when Amplitude does or doesn't track marketing attribution. These examples are illustrative, not exhaustive.
 
 Tracking occurs when either of the following applies:
@@ -467,7 +511,19 @@ Amplitude doesn't track marketing attribution under any of the following conditi
 
 |Rule|Example|
 |-|-|
-| The referrer originates from the same domain. | The landing page is `a.test.com`, with the referrer set to `b.test.com`. |
+| The referrer originates from the same domain with default configuration. | The landing page is `a.test.com`, with the referrer set to `b.test.com`. |
 | A specific referrer domain is explicitly excluded.| When setting `config.defaultTracking.attribution.excludeReferrers` = `[a.test.com]`, and the referrer domain is `a.test.com` for the current page. |
 | The subdomain is specified or matches the regular expression in `config.defaultTracking.attribution.excludeReferrers`.| Configuration of excludeReferrers involves specific string arrays or a regular expression. |
 | The user engages in direct traffic within the same session.| During a session, a user clicks on a link without any campaign attribution parameters, including the absence of UTM and click id parameters from an email. |
+| SPA redirect without page reloading  | During a session, a user clicks on a link without any campaign attribution parameters, including the absence of UTM and click id parameters from an email. |
+
+#### Rouge referral problem for SPAs
+
+SPA typically don't experience a true page load after a visitor enters the site, which means the referrer information doesn't update when clicking internal links. UTM parameters may be dropped during SPA redirects, while the referrer remains unchanged. This is a known issue in the industry. To address this problem, you can either:
+
+- Control the page and location parameters and / or
+- Unset the referrer after the first hit
+
+*[Campaign]: Including all UTM parameters, all Referrer parameters and all Click IDs
+*[Direct traffic]: No value for any campaign parameters
+*[SPA]: Single Page Application
