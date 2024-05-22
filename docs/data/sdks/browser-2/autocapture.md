@@ -2,7 +2,7 @@
 title: Autocapture
 ---
 
-Amplitude's Autocapture plugin extends the events and properties that Amplitude tracks by default, and enables Visual Tagger to enable you to define events based on elements on your site. For more information about Visual Tagger, see [Visual Tagger](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor).
+Amplitude's Autocapture plugin extends the events and properties that Amplitude tracks by default, and enables Visual Labeling to enable you to define events based on elements on your site. For more information about Visual Labeling, see [Visual Labeling](https://help.amplitude.com/hc/en-us/articles/24094812669979-Visual-tag-editor).
 
 --8<-- "includes/alpha-release.md"
 
@@ -87,7 +87,7 @@ By default, if you don't use these settings, Amplitude tracks the default select
 
 ## New events
 
-When you enable the Autocapture plugin, Amplitude sends two events, from which you can create Dynamic Events with Visual Tagger:
+When you enable the Autocapture plugin, Amplitude sends two events, from which you can create Labeled Events with Visual Labeling:
 
 - `[Amplitude] Element Clicked`
 - `[Amplitude] Element Changed`
