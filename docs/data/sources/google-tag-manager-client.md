@@ -364,7 +364,9 @@ Verify whether cookies have been altered or removed inadvertently. [Cookies](../
 
 ### Cross Domain Tracking?
 
-To retain user identification across different domains, a custom HTML tag must be created to attach the user's deviceId to the domain link you wish to track. By appending `deviceId=YourDeviceId` to the URL, the Amplitude Analytics Browser SDK will utilize this deviceId from the URL parameter rather than generating a new one. Due to certain limitations in GTM, the [workaround](https://github.com/amplitude/GTM-cross-domain-script) is available to illustrate how to append URLs in the GTM template.
+To retain user identification across domains, create a custom HTML tag to attach the user's `deviceId` to the domain link you wish to track. When you append `ampDeviceId=YourDeviceId` to the URL, the Amplitude Browser SDK uses the URL parameter value rather than generate a new `deviceId`. For more information see an [example script](https://github.com/amplitude/GTM-cross-domain-script) on GitHub.
+
+Starting from template version `15cce` (library version `amplitude-ts-gtm/3.7.12`), the template supports getting the session ID from the URL parameter `ampSessionId` to maintain the same session. For more information, see [Cross-domain tracking](/data/sdks/browser-2/#cross-domain-tracking) with Browser SDK 2.0.
 
 ### How to pass other types for identify/groupIdentify value
 
