@@ -30,7 +30,7 @@ To set up this integration, you need the following:
 
 1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
 2. In the Lookup Tables section, click **CSV**.
-3. Select column in CSV to map property to.
+3. Select column in CSV as the key column.
 4. Map your property.
 5. When you're done mapping, click **Finish**.
 

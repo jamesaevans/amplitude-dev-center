@@ -4,7 +4,7 @@ description: The Lookup Table API lets you create, get, update, and delete looku
 ---
 
 !!!deprecated "This version of the Lookup Tables API is deprecated"
-    This API is no longer supported. Use the new [API](/data/sources/lookup-table). 
+    This API is no longer supported. Use the new [API](/data/apis/lookup-tables-api). 
 
 !!!beta "This feature is in beta"
     This requires that you have the `lookup_table` feature enabled in Amplitude. Contact your Amplitude account manager if you need help.
