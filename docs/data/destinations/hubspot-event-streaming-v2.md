@@ -7,7 +7,7 @@ description: Send Amplitude events to HubSpot automatically with just a few clic
 
 !!!info "This integration is in Closed Beta"
 
-    This feature is in Closed Beta and is in active development. Email integrations@amplitude.com if you are interested. Unlike the [HubSpot streaming integration](https://www.docs.developers.amplitude.com/data/destinations/HubSpot-event-streaming/), this integration will automatically create the necessary custom event definitions and properties in HubSpot, rather than requiring they be created manually. 
+    This feature is in Closed Beta and is in active development. Email [integrations@amplitude.com](mailto:integrations@amplitude.com] for more information. Unlike the [HubSpot streaming integration](/data/destinations/hubspot-event-streaming/), this integration automatically creates the necessary custom event definitions and properties in HubSpot, rather than requiring you to create them manually. 
 
 ## Use cases
 
@@ -19,16 +19,15 @@ description: Send Amplitude events to HubSpot automatically with just a few clic
 
 Keep these things in mind when sending events to HubSpot:
 
+- If you have an existing HubSpot streaming sync [HubSpot streaming integration](/data/destinations/hubspot-event-streaming/), and you want to access these new features, select HubSpot V2 in the Data Catalog to create a new Event streaming connection . With this update, Amplitude sends events and their properties to different event definitions in HubSpot, matching each of the selected events, rather than the single event definition from the internal event name.
 - You must enable this integration in each Amplitude project you want to use it in.
 - Events from Amplitude appear as Custom Behavioral Events in HubSpot.
 - A HubSpot Enterprise Marketing Hub account is required to send Custom Behavioral Events.
 - Relevant limits for HubSpot events are:
     - HubSpot enforces strict API rate limits. You can find more information about these limits [here](https://developers.HubSpot.com/docs/api/usage-details).
     - HubSpot allows up to 50 custom properties for each custom event.
-- Types of data you can forward to HubSpot:
-    - Amplitude sends selected event properties along with the event.
-- Latency considerations:
-    - Amplitude targets an end-to-end p95 latency of 60s. This means 95% of Events streamed deliver to HubSpot within 60s or less. Amplitude has internal processes, monitors, and alerts in place to meet this target.   
+- Amplitude sends selected event properties along with the event.
+- Amplitude targets an end-to-end p95 latency of 60s. This means 95% of Events streamed deliver to HubSpot within 60s or less. Amplitude has internal processes, monitors, and alerts in place to meet this target.   
 
 ## Setup
 
