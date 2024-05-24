@@ -4,11 +4,11 @@ description: Sync cohorts from Amplitude to Humanic AI
 status: new
 ---
 
-[Humanic AI](https://www.humanic.ai/) is an AI Powered PLG CRM for the Modern Revenue Team. This integration lets you sync cohorts from Amplitude to Humanic AI. 
+[Humanic AI](https://www.humanic.ai/) is a Marketing Automation Platform that helps you unlock growth. This integration lets you sync cohorts from Amplitude to Humanic AI. 
 
 !!!Tip
 
-    This integration is maintained by Humanic AI. Contact the [Humanic AI support team](https://help.Humanic AI.com/hc/en-us) for support with this integration. 
+    This integration is maintained by Humanic AI. Email [care@humanic.ai](mailto:care@humanic.ai) for support with this integration. 
 
 ## Considerations
 
