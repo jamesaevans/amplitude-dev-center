@@ -53,6 +53,8 @@ canonicalized
 canonicalizes
 CleverTap
 CocoaPods
+CommandBar
+commandBar
 config
 Convizit
 CRM

@@ -16,6 +16,7 @@
 - :candu: [Candu](../data/destinations/candu-cohort.md)
 - [Cohort Webhooks](../data/destinations/cohort-webhooks.md)
 - [chameleon](../data/destinations/chameleon-cohort.md)
+- :commandbar: [CommandBar](../data/destinations/commandbar-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)
 - :customerio: [Customer.io](../data/destinations/customerio-cohort.md)
